@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file
+		t3:id="1746974209"
+		source-language="en"
+		datatype="plaintext"
+		original="messages"
+		date="2025-05-11T16:22:32Z"
+		product-name="deepl_write"
+	>
+		<header/>
+		<body>
+			<trans-unit id="backend.label">
+				<source>Optimize with DeepL Write</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

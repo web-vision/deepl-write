@@ -7,40 +7,31 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
 //       we should add a validator checking for invalid combinations saved into the site config
 
 (static function (): void {
-    $GLOBALS['SiteConfiguration']['site_language']['columns']['isWritingStyleOptimized'] = [
-        'label' => 'Is a writing style optimized language',
-        'onChange' => 'reload',
-        'displayCond' => [
-            'AND' => [
-                'USER:' . WriteSupport::class . '->languageIsRephraseSupported',
-            ]
-        ],
+    $GLOBALS['SiteConfiguration']['site_language']['columns']['deeplWriteLanguage'] = [
+        'label' => 'DeepL Write language',
+        'description' => 'The language the write optimization should be done in.',
         'config' => [
-            'type' => 'check',
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'itemsProcFunc' => WriteSupport::class . '->getSupportedLanguageForField',
+            'items' => [
+                [
+                    'label' => '-- Choose a writing style language --',
+                    'value' => '',
+                ]
+            ],
+            'minitems' => 0,
+            'maxitems' => 1,
+            'size' => 1,
         ],
     ];
-    if (!ExtensionManagementUtility::isLoaded('deepltranslate_core')) {
-        $GLOBALS['SiteConfiguration']['site_language']['columns']['deeplTargetLanguage'] = [
-            'label' => 'DeepL Target language',
-            'description' => 'The language the write optimization should be done in.',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'itemsProcFunc' => WriteSupport::class . '->getSupportedLanguageForField',
-                'items' => [],
-                'minitems' => 0,
-                'maxitems' => 1,
-                'size' => 1,
-            ],
-        ];
-    }
 
     $GLOBALS['SiteConfiguration']['site_language']['columns']['deeplWriteTone'] = [
         'label' => 'DeepL Write tone',
         'onChange' => 'reload',
         'displayCond' => [
             'AND' => [
-                'FIELD:isWritingStyleOptimized:REQ:true',
+                'FIELD:deeplWriteLanguage:!=:',
                 'FIELD:deeplWriteWritingStyle:REQ:false',
             ],
         ],
@@ -67,7 +58,7 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
         'onChange' => 'reload',
         'displayCond' => [
             'AND' => [
-                'FIELD:isWritingStyleOptimized:REQ:true',
+                'FIELD:deeplWriteLanguage:!=:',
                 'FIELD:deeplWriteTone:REQ:false',
             ],
         ],
@@ -88,18 +79,24 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
     ];
 
     $deeplPaletteFields = [
-        'deeplTargetLanguage',
-        'isWritingStyleOptimized',
+        'deeplWriteLanguage',
         '--linebreak--',
         'deeplWriteWritingStyle',
         'deeplWriteTone',
     ];
 
     if (ExtensionManagementUtility::isLoaded('deepltranslate_core')) {
-        $deeplPaletteFields[] = 'deeplFormality';
-        $GLOBALS['SiteConfiguration']['site_language']['columns']['deeplFormality']['displayCond']['AND'][] = 'FIELD:isWritingStyleOptimized:REQ:false';
+        // ensure disabled fields if DeepL Write Language and writing Style optimized is set
+        $GLOBALS['SiteConfiguration']['site_language']['columns']['deeplFormality']['displayCond']['AND'][] = 'FIELD:deeplWriteLanguage:=:';
+        $GLOBALS['SiteConfiguration']['site_language']['columns']['deeplTargetLanguage']['displayCond']['AND'][] = 'FIELD:deeplWriteLanguage:=:';
+        $GLOBALS['SiteConfiguration']['site_language']['columns']['deeplWriteLanguage']['displayCond']['AND'][] = 'FIELD:deeplTargetLanguage:=:';
     }
-    $GLOBALS['SiteConfiguration']['site_language']['palettes']['deepl'] = [
+    $GLOBALS['SiteConfiguration']['site_language']['palettes']['deeplWrite'] = [
         'showitem' => implode(',', $deeplPaletteFields),
     ];
+    $GLOBALS['SiteConfiguration']['site_language']['types']['1']['showitem'] = str_replace(
+        '--palette--;;default,',
+        '--palette--;;default, --palette--;LLL:EXT:deepl_write/Resources/Private/Language/locallang.xlf:site_configuration.deeplwrite.title;deeplWrite,',
+        $GLOBALS['SiteConfiguration']['site_language']['types']['1']['showitem']
+    );
 })();

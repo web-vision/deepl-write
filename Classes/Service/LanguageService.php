@@ -13,8 +13,8 @@ final class LanguageService
     {
         $targetLanguage = $site->getLanguageById($targetLanguage);
         $targetLanguageConfiguration = $targetLanguage->toArray();
-        $deeplTargetLanguage = $targetLanguageConfiguration['deeplTargetLanguage'];
+        $deeplWriteLanguage = $targetLanguageConfiguration['deeplWriteLanguage'];
 
-        return RephraseSupportedDeepLLanguage::tryFrom($deeplTargetLanguage);
+        return RephraseSupportedDeepLLanguage::tryFrom($deeplWriteLanguage);
     }
 }

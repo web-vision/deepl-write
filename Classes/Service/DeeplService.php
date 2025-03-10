@@ -20,8 +20,8 @@ use WebVision\DeeplWrite\Exception\RephraseConfigurationException;
 /**
  * Wrapper class for dealing with DeepL API
  *
- * @internal This class is part of EXT:deepl_write and oly for internal usage,.
- * therefore not public API.
+ * @internal This class is part of EXT:deepl_write and only for internal usage,
+ * therefore, not public API.
  */
 final class DeeplService
 {

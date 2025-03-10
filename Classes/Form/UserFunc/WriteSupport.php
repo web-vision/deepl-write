@@ -11,12 +11,12 @@ use WebVision\DeeplWrite\Domain\Enum\RephraseWritingStyleDeepL;
 
 final class WriteSupport
 {
-    public function getSupportedLanguagesForField(array &$configuration): void
+    public function getSupportedLanguageForField(array &$configuration): void
     {
         foreach (RephraseSupportedDeepLLanguage::cases() as $supportedLanguage) {
             $configuration['items'][] = [
                 'label' => $supportedLanguage->value,
-                'value' => $supportedLanguage->name
+                'value' => $supportedLanguage->value
             ];
         }
     }
@@ -26,7 +26,7 @@ final class WriteSupport
         foreach (RephraseToneDeepL::cases() as $supportedTone) {
             $configuration['items'][] = [
                 'label' => $supportedTone->value,
-                'value' => $supportedTone->name
+                'value' => $supportedTone->value
             ];
         }
     }
@@ -36,7 +36,7 @@ final class WriteSupport
         foreach (RephraseWritingStyleDeepL::cases() as $supportedWritingStyle) {
             $configuration['items'][] = [
                 'label' => $supportedWritingStyle->value,
-                'value' => $supportedWritingStyle->name
+                'value' => $supportedWritingStyle->value
             ];
         }
     }
@@ -51,16 +51,16 @@ final class WriteSupport
         }
 
         $record = $params['record'];
-        if (!isset($record['deeplTargetLanguage'])) {
+        if (!isset($record['deeplWriteLanguage'])) {
             return false;
         }
 
-        $setUpTargetLanguage = $record['deeplTargetLanguage'];
+        $setUpTargetLanguage = $record['deeplWriteLanguage'];
 
         if ($setUpTargetLanguage === []) {
             return false;
         }
-        $languageSupport = RephraseSupportedDeepLLanguage::tryFrom(array_pop($setUpTargetLanguage));
+        $languageSupport = RephraseSupportedDeepLLanguage::tryFrom(is_array($setUpTargetLanguage) ? array_pop($setUpTargetLanguage) : $setUpTargetLanguage);
         return $languageSupport instanceof RephraseSupportedDeepLLanguage;
     }
 }

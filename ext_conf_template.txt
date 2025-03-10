@@ -1,2 +1,2 @@
-# cat=Settings/O; type=string; label= DeepL Write API Key
+# cat=Settings/O; type=string; label=DeepL Write API Key: The API key MUST include a paid DeepL subscription. At the moment there is no Write API available for DeepL free.
 apiKey =

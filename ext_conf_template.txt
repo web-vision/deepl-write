@@ -1,0 +1,2 @@
+# cat=Settings/O; type=string; label= DeepL Write API Key
+apiKey =

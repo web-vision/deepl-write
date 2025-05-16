@@ -9,7 +9,7 @@ use WebVision\DeeplWrite\Domain\Enum\RephraseSupportedDeepLLanguage;
 
 final class LanguageService
 {
-    public function getTargetLanguageForRephrasing(SiteInterface $site, int $targetLanguage): ?RephraseSupportedDeepLLanguage
+    public function getTargetLanguageForRephrasing(SiteInterface $site, int $targetLanguage): ?string
     {
         $targetLanguage = $site->getLanguageById($targetLanguage);
         $targetLanguageConfiguration = $targetLanguage->toArray();

@@ -13,10 +13,10 @@ final class WriteSupport
 {
     public function getSupportedLanguageForField(array &$configuration): void
     {
-        foreach (RephraseSupportedDeepLLanguage::cases() as $supportedLanguage) {
+        foreach (RephraseSupportedDeepLLanguage::getAllLanguages() as $supportedLanguage) {
             $configuration['items'][] = [
-                'label' => $supportedLanguage->value,
-                'value' => $supportedLanguage->value
+                'label' => $supportedLanguage,
+                'value' => $supportedLanguage
             ];
         }
     }
@@ -60,7 +60,6 @@ final class WriteSupport
         if ($setUpTargetLanguage === []) {
             return false;
         }
-        $languageSupport = RephraseSupportedDeepLLanguage::tryFrom(is_array($setUpTargetLanguage) ? array_pop($setUpTargetLanguage) : $setUpTargetLanguage);
-        return $languageSupport instanceof RephraseSupportedDeepLLanguage;
+        return RephraseSupportedDeepLLanguage::isLanguageSupported(is_array($setUpTargetLanguage) ? array_pop($setUpTargetLanguage) : $setUpTargetLanguage);
     }
 }

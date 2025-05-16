@@ -47,7 +47,7 @@ final class DeeplService
      */
     public function rephraseText(
         string                         $text,
-        RephraseSupportedDeepLLanguage $targetLanguage,
+        string $targetLanguage,
         RephraseWritingStyleDeepL      $writingStyle = null,
         RephraseToneDeepL              $tone = null
     ): string {
@@ -58,10 +58,10 @@ final class DeeplService
                 1741344565
             );
         }
-        if ($writingStyle instanceof RephraseWritingStyleDeepL) {
+        if ($writingStyle instanceof RephraseWritingStyleDeepL && RephraseSupportedDeepLLanguage::isWritingStyleSupported($targetLanguage)) {
             $options[RephraseTextOptions::WRITING_STYLE] = $writingStyle->value;
         }
-        if ($tone instanceof RephraseToneDeepL) {
+        if ($tone instanceof RephraseToneDeepL && RephraseSupportedDeepLLanguage::isToneSupportedByLanguage($targetLanguage)) {
             $options[RephraseTextOptions::TONE] = $tone->value;
         }
 
@@ -83,13 +83,13 @@ final class DeeplService
      */
     private function optimizeText(
         string                         $text,
-        RephraseSupportedDeepLLanguage $targetLanguage,
+        string $targetLanguage,
         array                          $options = []
     ): string
     {
         $rephrased = $this->translator->rephraseText(
             $text,
-            $targetLanguage->value,
+            $targetLanguage,
             $options
         );
 

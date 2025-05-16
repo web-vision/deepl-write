@@ -55,11 +55,9 @@ final class WritePresetViewHelper extends AbstractViewHelper
             }
             $languageCode = strtoupper($language->getLocale()->getName());
 
-            $possibleWriteLanguage = RephraseSupportedDeepLLanguage::tryFrom($languageCode);
-            if (!$possibleWriteLanguage instanceof RephraseSupportedDeepLLanguage) {
+            if (!RephraseSupportedDeepLLanguage::isLanguageSupported($languageCode)) {
                 $languageCode = strtoupper($language->getLocale()->getLanguageCode());
-                $possibleWriteLanguage = RephraseSupportedDeepLLanguage::tryFrom($languageCode);
-                if (!$possibleWriteLanguage instanceof RephraseSupportedDeepLLanguage) {
+                if (!RephraseSupportedDeepLLanguage::isLanguageSupported($languageCode)) {
                     continue;
                 }
             }

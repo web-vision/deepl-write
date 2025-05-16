@@ -47,8 +47,7 @@ final class WriteDropdownGenerator
                 ($languageConfiguration['deeplWriteLanguage'] ?? '') !== ''
                 && !array_key_exists($language->getLanguageId(), $foundTranslations)
             ) {
-                $writeAvailableLanguage = RephraseSupportedDeepLLanguage::tryFrom($languageConfiguration['deeplWriteLanguage']);
-                if (!$writeAvailableLanguage instanceof RephraseSupportedDeepLLanguage) {
+                if (!RephraseSupportedDeepLLanguage::isLanguageSupported($languageConfiguration['deeplWriteLanguage'])) {
                     continue;
                 }
                 $availableTranslations[$language->getLanguageId()] = sprintf(

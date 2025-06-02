@@ -14,6 +14,7 @@ $EM_CONF[$_EXTKEY] = [
             'php' => '8.1.0-8.4.99',
             'typo3' => '12.4.0-13.4.99',
             'backend' => '12.4.0-13.4.99',
+            'deepl_base' => '*',
         ],
         'conflicts' => [],
         'suggests' => [
@@ -21,7 +22,7 @@ $EM_CONF[$_EXTKEY] = [
             'dashboard' => '*',
             'install' => '*',
             'enable_translated_content' => '*',
-            'deepltranslate_core' => '*'
+            'deepltranslate_core' => '*',
         ],
     ],
     // @todo Autoload section in `ext_emconf.php` should not be needed anymore since TYPO3 v12, and in first test it

@@ -23,8 +23,7 @@ final class WriteDropdownGenerator
 {
     public function __construct(
         private readonly ConnectionPool $connectionPool,
-    )
-    {
+    ) {
     }
 
     /**

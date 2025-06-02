@@ -12,3 +12,17 @@ services:
 
   WebVision\DeeplWrite\Configuration\ConfigurationInterface:
     class: WebVision\DeeplWrite\Configuration\Configuration
+
+  WebVision\DeeplWrite\Event\Listener\ApplyLocalizationModesEventListener:
+    tags:
+      - name: 'event.listener'
+        identifier: 'deeplwrite/deeplwrite-localization-modes-determine'
+        event: WebVision\Deepl\Base\Event\GetLocalizationModesEvent
+        after: 'deepl-base/determine-default-typo3-localization-modes'
+
+  WebVision\DeeplWrite\Event\Listener\ProcessLocalizationModeEventListener:
+    tags:
+      - name: 'event.listener'
+        identifier: 'deeplwrite/deeplwrite-localization-modes-process'
+        event: WebVision\Deepl\Base\Event\LocalizationProcessPrepareDataHandlerCommandMapEvent
+        after: 'deepl-base/process-default-typo3-localization-modes'

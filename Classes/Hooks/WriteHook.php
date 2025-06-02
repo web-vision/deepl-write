@@ -31,8 +31,8 @@ final class WriteHook
     public function processCmdmap(
         string $command,
         string $table,
-               $id,
-               $value,
+        $id,
+        $value,
         bool &$commandIsProcessed,
         DataHandler $dataHandler,
         $pasteUpdate
@@ -108,8 +108,8 @@ final class WriteHook
                 $rephrasedText[$key] = $this->deeplService->rephraseText(
                     $text,
                     $language,
-                    RephraseWritingStyleDeepL::tryFrom($site->getLanguageById((int)$languageId)->toArray()['deeplWriteWritingStyle'] ?: ''),
-                    RephraseToneDeepL::tryFrom($site->getLanguageById((int)$languageId)->toArray()['deeplWriteTone'] ?: ''),
+                    RephraseWritingStyleDeepL::tryFrom($site->getLanguageById((int)$languageId)->toArray()['deeplWriteWritingStyle'] ?? ''),
+                    RephraseToneDeepL::tryFrom($site->getLanguageById((int)$languageId)->toArray()['deeplWriteTone'] ?? ''),
                 );
             }
 
@@ -121,7 +121,7 @@ final class WriteHook
         if ($updateFields !== []) {
             $data = [
                 $table => [
-                    $translatedRecord['uid'] => $updateFields
+                    $translatedRecord['uid'] => $updateFields,
                 ],
             ];
 

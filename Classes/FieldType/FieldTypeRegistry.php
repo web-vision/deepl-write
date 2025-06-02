@@ -18,7 +18,7 @@ final class FieldTypeRegistry
         array $tcaConfig,
         string $table,
         string $fieldName,
-        string $type = null
+        ?string $type = null
     ): FieldTypeInterface {
         $renderType = $tcaConfig['renderType'] ?? $tcaConfig['type'];
         return new self::$fieldTypes[$renderType](

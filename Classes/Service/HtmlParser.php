@@ -25,7 +25,7 @@ final class HtmlParser
         // as wrapper allows having only one base tag.
         // As template tag is official HTML5 standard and not used inside RTE,
         // this solution seems the best at the moment
-        $value = sprintf('<template>%s</template>', str_replace(PHP_EOL, '' ,$value));
+        $value = sprintf('<template>%s</template>', str_replace(PHP_EOL, '', $value));
         $iterator = new DOMDocument();
         $iterator->loadHTML(
             $value,

@@ -51,9 +51,9 @@ final class ClientFactory
                     $options[$option] = $options[DeepLClientOptions::HTTP_CLIENT]->getConfig($option);
                 }
             }
-//            if (count($options) > 1) {
-//                unset($options[DeepLClientOptions::HTTP_CLIENT]);
-//            }
+            //            if (count($options) > 1) {
+            //                unset($options[DeepLClientOptions::HTTP_CLIENT]);
+            //            }
             return new DeepLClient($this->configuration->getApiKey(), $options);
         }
         return new DeepLClient($this->configuration->getApiKey(), $options);

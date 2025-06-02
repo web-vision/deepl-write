@@ -8,6 +8,7 @@ use DeepL\DeepLClientOptions;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\StringUtility;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
+
 abstract class AbstractDeepLTestCase extends FunctionalTestCase
 {
 

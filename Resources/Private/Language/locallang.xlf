@@ -13,6 +13,12 @@
 			<trans-unit id="backend.label">
 				<source>Optimize with DeepL Write</source>
 			</trans-unit>
+			<trans-unit id="localize.educate.deeplwriteHeader">
+				<source>Optimize with DeepL Write</source>
+			</trans-unit>
+			<trans-unit id="localize.educate.deeplwrite">
+				<source>A long description for DeepL write</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

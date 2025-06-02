@@ -33,8 +33,8 @@ final class DeeplServiceTest extends AbstractDeepLTestCase
         /** @var DeeplService $service */
         $service = $this->get(DeeplService::class);
         $rephrase = $service->rephraseText(
-            "teste mich einfach",
-            "DE"
+            'teste mich einfach',
+            'DE'
         );
     }
 }

@@ -35,10 +35,10 @@ final class DeeplService
      * @throws DeepLException
      */
     public function rephraseText(
-        string                         $text,
+        string $text,
         string $targetLanguage,
-        RephraseWritingStyleDeepL      $writingStyle = null,
-        RephraseToneDeepL              $tone = null
+        ?RephraseWritingStyleDeepL $writingStyle = null,
+        ?RephraseToneDeepL $tone = null
     ): string {
         $options = [];
         if ($writingStyle !== null && $tone !== null) {
@@ -60,7 +60,7 @@ final class DeeplService
         foreach ($splittedText as $text) {
             $textResult[] = $this->optimizeText($text, $targetLanguage, $options);
         }
-        return implode(" ", $textResult);
+        return implode(' ', $textResult);
     }
 
     /**
@@ -71,11 +71,10 @@ final class DeeplService
      * @throws DeepLException
      */
     private function optimizeText(
-        string                         $text,
+        string $text,
         string $targetLanguage,
-        array                          $options = []
-    ): string
-    {
+        array $options = []
+    ): string {
         $rephrased = $this->deeplClient->rephraseText(
             $text,
             $targetLanguage,
@@ -103,8 +102,8 @@ final class DeeplService
         for ($i = 0; $i < $countResult; $i = $i+2) {
             $sentence = $sentences[$i];
             $delimiter = $sentences[$i+1];
-            $completeSentence = $sentence.$delimiter;
-            if (mb_strlen($textSnippet.$completeSentence, '8bit') <= 10000) {
+            $completeSentence = $sentence . $delimiter;
+            if (mb_strlen($textSnippet . $completeSentence, '8bit') <= 10000) {
                 $textSnippet .= $completeSentence;
             } else {
                 $snippets[] = $textSnippet;

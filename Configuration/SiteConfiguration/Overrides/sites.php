@@ -18,7 +18,7 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
                 [
                     'label' => '-- Choose a writing style language --',
                     'value' => '',
-                ]
+                ],
             ],
             'minitems' => 0,
             'maxitems' => 1,
@@ -44,7 +44,7 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
                 [
                     'label' => '-- Choose style OR tone --',
                     'value' => '',
-                ]
+                ],
             ],
             'minitems' => 0,
             'maxitems' => 1,
@@ -70,7 +70,7 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
                 [
                     'label' => '-- Choose style OR tone --',
                     'value' => '',
-                ]
+                ],
             ],
             'minitems' => 0,
             'maxitems' => 1,

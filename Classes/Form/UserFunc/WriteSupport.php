@@ -16,7 +16,7 @@ final class WriteSupport
         foreach (RephraseSupportedDeepLLanguage::getAllLanguages() as $supportedLanguage) {
             $configuration['items'][] = [
                 'label' => $supportedLanguage,
-                'value' => $supportedLanguage
+                'value' => $supportedLanguage,
             ];
         }
     }
@@ -26,7 +26,7 @@ final class WriteSupport
         foreach (RephraseToneDeepL::cases() as $supportedTone) {
             $configuration['items'][] = [
                 'label' => $supportedTone->value,
-                'value' => $supportedTone->value
+                'value' => $supportedTone->value,
             ];
         }
     }
@@ -36,7 +36,7 @@ final class WriteSupport
         foreach (RephraseWritingStyleDeepL::cases() as $supportedWritingStyle) {
             $configuration['items'][] = [
                 'label' => $supportedWritingStyle->value,
-                'value' => $supportedWritingStyle->value
+                'value' => $supportedWritingStyle->value,
             ];
         }
     }

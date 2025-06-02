@@ -7,14 +7,10 @@ namespace WebVision\DeeplWrite\Service;
 use DeepL\DeepLClient;
 use DeepL\DeepLException;
 use DeepL\RephraseTextOptions;
-use DeepL\TranslatorOptions;
-use TYPO3\CMS\Core\Http\Client\GuzzleClientFactory;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use WebVision\DeeplWrite\Configuration\ConfigurationInterface;
+use WebVision\DeeplWrite\Client\ClientFactory;
 use WebVision\DeeplWrite\Domain\Enum\RephraseSupportedDeepLLanguage;
 use WebVision\DeeplWrite\Domain\Enum\RephraseToneDeepL;
 use WebVision\DeeplWrite\Domain\Enum\RephraseWritingStyleDeepL;
-use WebVision\DeeplWrite\Exception\ApiKeyNotSetException;
 use WebVision\DeeplWrite\Exception\RephraseConfigurationException;
 
 /**
@@ -26,19 +22,12 @@ use WebVision\DeeplWrite\Exception\RephraseConfigurationException;
 final class DeeplService
 {
     private const SENTENCE_SPLIT = '/([.?!]\s)/';
-    private ?DeepLClient $translator = null;
+    private ?DeepLClient $deeplClient;
 
     public function __construct(
-        private readonly ConfigurationInterface $configuration
+        ClientFactory $clientFactory,
     ) {
-        if ($this->configuration->getApiKey() === '') {
-            throw new ApiKeyNotSetException(
-                'The DeepL API key is not set',
-                1741343502
-            );
-        }
-        $options[TranslatorOptions::HTTP_CLIENT] = GeneralUtility::makeInstance(GuzzleClientFactory::class)->getClient();
-        $this->translator = new DeepLClient($this->configuration->getApiKey(), $options);
+        $this->deeplClient = $clientFactory->buildDeeplClient();
     }
 
     /**
@@ -87,7 +76,7 @@ final class DeeplService
         array                          $options = []
     ): string
     {
-        $rephrased = $this->translator->rephraseText(
+        $rephrased = $this->deeplClient->rephraseText(
             $text,
             $targetLanguage,
             $options

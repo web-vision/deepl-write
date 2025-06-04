@@ -8,7 +8,9 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
 
 (static function (): void {
     $GLOBALS['SiteConfiguration']['site_language']['columns']['deeplWriteLanguage'] = [
+        // @todo Should be a translation key.
         'label' => 'DeepL Write language',
+        // @todo Should be a translation key.
         'description' => 'The language the write optimization should be done in.',
         'config' => [
             'type' => 'select',
@@ -16,6 +18,7 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
             'itemsProcFunc' => WriteSupport::class . '->getSupportedLanguageForField',
             'items' => [
                 [
+                    // @todo Should be a translation key.
                     'label' => '-- Choose a writing style language --',
                     'value' => '',
                 ],
@@ -27,6 +30,7 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
     ];
 
     $GLOBALS['SiteConfiguration']['site_language']['columns']['deeplWriteTone'] = [
+        // @todo Should be a translation key.
         'label' => 'DeepL Write tone',
         'onChange' => 'reload',
         'displayCond' => [
@@ -35,6 +39,7 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
                 'FIELD:deeplWriteWritingStyle:REQ:false',
             ],
         ],
+        // @todo Should be a translation key.
         'description' => 'The language the write optimization should be done in.',
         'config' => [
             'type' => 'select',
@@ -42,6 +47,7 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
             'itemsProcFunc' => WriteSupport::class . '->getSupportedToneForField',
             'items' => [
                 [
+                    // @todo Should be a translation key.
                     'label' => '-- Choose style OR tone --',
                     'value' => '',
                 ],
@@ -53,7 +59,9 @@ use WebVision\DeeplWrite\Form\UserFunc\WriteSupport;
     ];
 
     $GLOBALS['SiteConfiguration']['site_language']['columns']['deeplWriteWritingStyle'] = [
+        // @todo Should be a translation key.
         'label' => 'DeepL Write writing style',
+        // @todo Should be a translation key.
         'description' => 'The language the write optimization should be done in.',
         'onChange' => 'reload',
         'displayCond' => [

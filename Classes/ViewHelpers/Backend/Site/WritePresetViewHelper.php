@@ -29,6 +29,7 @@ final class WritePresetViewHelper extends AbstractViewHelper
 
     public function render(): string
     {
+        // @todo $siteLanguageIds is not used - ViewHelper argument make not sense. Should be rechecked.
         $siteLanguageIds = GeneralUtility::intExplode(',', $this->arguments['siteLanguageIds'], true);
         $request = $this->renderingContext->getRequest();
         if (!$request instanceof ServerRequest) {
@@ -42,7 +43,7 @@ final class WritePresetViewHelper extends AbstractViewHelper
 
         try {
             $site = $this->siteFinder->getSiteByIdentifier($siteIdentifier);
-        } catch (SiteNotFoundException $e) {
+        } catch (SiteNotFoundException) {
             return '';
         }
 

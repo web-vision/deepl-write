@@ -11,6 +11,7 @@ use WebVision\DeeplWrite\Tests\Functional\Helper\AbstractDeepLTestCase;
 final class DeeplServiceTest extends AbstractDeepLTestCase
 {
     protected array $testExtensionsToLoad = [
+        'web-vision/deepl-base',
         'web-vision/deepl-write',
     ];
 

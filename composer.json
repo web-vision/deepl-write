@@ -33,6 +33,9 @@
             "web-dir": ".Build/Web",
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
             "app-dir": ".Build"
+        },
+        "branch-alias": {
+            "dev-main": "1.x-dev"
         }
     },
     "config": {

@@ -13,3 +13,7 @@ sniffs:
       indentPerLevel: 4
   - class: RepeatingRValue
     disabled: true
+  # @todo Remove this until commented out (dead) code has been removed from TypoScript files to let this reported in
+  # @todo the future. Currently keeping it as working documentation. Temporary disable.
+  - class: DeadCode
+    disabled: true

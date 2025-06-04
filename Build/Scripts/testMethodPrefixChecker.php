@@ -35,11 +35,15 @@ if ((new \TYPO3\CMS\Core\Information\Typo3Version())->getMajorVersion() >= 13) {
 
 
 $finder = new Symfony\Component\Finder\Finder();
+$folders = [];
+if (is_dir(__DIR__ . '/../../Tests/Unit/')) {
+    $folders[] = __DIR__ . '/../../Tests/Unit/';
+}
+if (is_dir(__DIR__ . '/../../Tests/Functional/')) {
+    $folders[] = __DIR__ . '/../../Tests/Functional/';
+}
 $finder->files()
-    ->in([
-        __DIR__ . '/../../Tests/Unit/',
-        __DIR__ . '/../../Tests/Functional/',
-    ])
+    ->in($folders)
     ->name('/Test\.php$/');
 
 $output = new ConsoleOutput();

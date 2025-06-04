@@ -56,7 +56,7 @@
             "WebVision\\DeeplWrite\\Tests\\": "Tests/"
         }
     },
-	"suggest": {
-		"web-vision/deepltranslate-core": "*"
-	}
+    "suggest": {
+        "web-vision/deepltranslate-core": "*"
+    }
 }

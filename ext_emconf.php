@@ -26,14 +26,4 @@ $EM_CONF[$_EXTKEY] = [
             'deepltranslate_core' => '*',
         ],
     ],
-    // @todo Autoload section in `ext_emconf.php` should not be needed anymore since TYPO3 v12, and in first test it
-    //       showed to work without it. This should be verified debugging TYPO3 core to be really sure about that and
-    //       making additional tests. Scheduled to be removed if removal can be considered safe.
-    'autoload' => [
-        'psr-4' => [
-            'WebVision\\DeeplWrite\\' => 'Classes',
-            'DeepL\\' => 'vendor/deeplcom/deepl-php/src',
-            'Http\\Discovery\\' => 'vendor/php-http/discovery/src',
-        ],
-    ],
 ];

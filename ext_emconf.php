@@ -8,13 +8,14 @@ $EM_CONF[$_EXTKEY] = [
     'author_company' => 'web-vision GmbH',
     'author_email' => 'hello@web-vision.de',
     'state' => 'stable',
-    'version' => '5.0.1',
+    'version' => '0.0.1',
     'constraints' => [
         'depends' => [
             'php' => '8.1.0-8.4.99',
             'typo3' => '12.4.0-13.4.99',
             'backend' => '12.4.0-13.4.99',
             'deepl_base' => '*',
+            'deeplcom_deepl_php' => '1.12.0-1.12.99',
         ],
         'conflicts' => [],
         'suggests' => [

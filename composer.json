@@ -7,7 +7,7 @@
         "ext-dom": "*",
         "typo3/cms-backend": "^12.4 || ^13.4",
         "typo3/cms-core": "^12.4 || ^13.4",
-        "web-vision/deepl-base": "1.*.*@dev",
+        "web-vision/deepl-base": "^1.0.1",
         "web-vision/deeplcom-deepl-php": "^1.12"
     },
     "require-dev": {

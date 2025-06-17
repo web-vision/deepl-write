@@ -10,6 +10,9 @@ services:
   WebVision\DeeplWrite\Hooks\WriteHook:
     public: true
 
+  WebVision\DeeplWrite\Controller\CkEditorController:
+    public: true
+
   WebVision\DeeplWrite\Configuration\ConfigurationInterface:
     class: WebVision\DeeplWrite\Configuration\Configuration
 

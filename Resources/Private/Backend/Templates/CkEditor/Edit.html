@@ -1,0 +1,83 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    xmlns:deeplWrite="http://typo3.org/ns/WebVision/DeeplWrite/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
+<div class="col-md-12">
+    <div class="row">
+        <p>
+            <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.description"/>
+        </p>
+    </div>
+    <div role="tabpanel">
+        <ul class="nav nav-tabs form-section-tabs t3js-tabs" role="tablist" id="tabs-DPLWRITE-format">
+            <li role="presentation" class="t3js-tabmenu-item nav-item">
+                <button
+                    class="nav-link active"
+                    data-bs-toggle="tab"
+                    data-bs-target="#DPLWRITE-format-1"
+                    aria-controls="#DPLWRITE-format-1"
+                    role="tab"
+                    aria-selected="true"
+                >
+                    <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.heading.style"/>
+                </button>
+            </li>
+            <li role="presentation" class="t3js-tabmenu-item nav-item">
+                <button
+                    class="nav-link"
+                    data-bs-toggle="tab"
+                    data-bs-target="#DPLWRITE-format-2"
+                    aria-controls="#DPLWRITE-format-2"
+                    role="tab"
+                >
+                    <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.heading.tone"/>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="DPLWRITE-format-1">
+            <h2 class="visually-hidden">
+                <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.heading.style"/>
+            </h2>
+            <fieldset class="form-section">
+                <p>
+                    <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.description.style"/>
+                </p>
+                <f:for each="{styles}" as="style" iteration="i">
+                    <input type="radio" value="{style.value}" name="format" class="style btn-check" id="style-{i.index}">
+                    <label class="btn btn-default col-md-3 col-xs-4" for="style-{i.index}">{style.name}</label>
+                </f:for>
+            </fieldset>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="DPLWRITE-format-2">
+            <h2 class="visually-hidden">
+                <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.heading.tone"/>
+            </h2>
+            <fieldset class="form-section">
+                <p>
+                    <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.description.tone"/>
+                </p>
+                <f:for each="{tones}" as="tone" iteration="i">
+                    <input type="radio" value="{tone.value}" name="format" class="tone btn-check" id="tone-{i.index}">
+                    <label class="btn btn-default col-md-3 col-xs-4" for="tone-{i.index}">{tone.name}</label>
+                </f:for>
+            </fieldset>
+        </div>
+    </div>
+    <fieldset class="form-section">
+        <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <label for="original" class="form-label t3js-formengine-label">Original</label>
+            <textarea rows="20" class="form-control t3js-formengine-textarea formengine-textarea" id="original"></textarea>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <label for="optimized" class="form-label t3js-formengine-label">Optimized</label>
+            <textarea rows="20" class="form-control t3js-formengine-textarea formengine-textarea" id="optimized"></textarea>
+        </div>
+        </div>
+    </fieldset>
+</div>
+</html>

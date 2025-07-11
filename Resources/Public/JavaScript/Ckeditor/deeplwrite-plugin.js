@@ -43,7 +43,6 @@ export class Deeplwrite extends Plugin {
                     const format = content.querySelector('input[name="format"]:checked');
                     let style = '';
                     let tone = '';
-                    console.log(format);
                     if (format !== null) {
                       if (format.classList.contains('style')) {
                         style = format.value;

@@ -50,7 +50,14 @@ final class HtmlParser
         $domResult = new DOMDocument('1.0', 'UTF-8');
 
         $this->addToDomRecursive($domResult, $result);
-        $generatedHtml = $domResult->saveHTML();
+        /**
+         * Get the Template tag from the DOMDocument
+         * This helps to return only this content without the XML annotation on the top
+         * of the document.
+         * @see https://www.php.net/manual/en/domdocument.savexml.php section node parameter
+         */
+        $template = $domResult->firstChild;
+        $generatedHtml = $domResult->saveXML($template);
         return str_replace(['<template>', '</template>'], '', $generatedHtml);
     }
 

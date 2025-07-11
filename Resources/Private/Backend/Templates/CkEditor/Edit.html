@@ -43,13 +43,22 @@
                 <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.heading.style"/>
             </h2>
             <fieldset class="form-section">
-                <p>
-                    <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.description.style"/>
-                </p>
-                <f:for each="{styles}" as="style" iteration="i">
-                    <input type="radio" value="{style.value}" name="format" class="style btn-check" id="style-{i.index}">
-                    <label class="btn btn-default col-md-3 col-xs-4" for="style-{i.index}">{style.name}</label>
-                </f:for>
+                <div class="row gy-3 gx-2">
+                    <p>
+                        <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.description.style"/>
+                    </p>
+                    <f:for each="{styles}" as="style" iteration="i">
+                        <div class="col-md-3 col-xs-4 d-grid">
+                            <input type="radio" value="{style.value}" name="format" class="style btn-check" id="style-{i.index}">
+                            <label class="btn btn-default" for="style-{i.index}">
+                                <f:translate
+                                    key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:deepl.write.style.{style.name}"
+                                    default="{style.value}"
+                                />
+                            </label>
+                        </div>
+                    </f:for>
+                </div>
             </fieldset>
         </div>
         <div role="tabpanel" class="tab-pane" id="DPLWRITE-format-2">
@@ -57,13 +66,22 @@
                 <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.heading.tone"/>
             </h2>
             <fieldset class="form-section">
-                <p>
-                    <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.description.tone"/>
-                </p>
-                <f:for each="{tones}" as="tone" iteration="i">
-                    <input type="radio" value="{tone.value}" name="format" class="tone btn-check" id="tone-{i.index}">
-                    <label class="btn btn-default col-md-3 col-xs-4" for="tone-{i.index}">{tone.name}</label>
-                </f:for>
+                <div class="row gy-3 gx-2">
+                    <p>
+                        <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.description.tone"/>
+                    </p>
+                    <f:for each="{tones}" as="tone" iteration="i">
+                        <div class="col-md-3 col-xs-4 d-grid">
+                            <input type="radio" value="{tone.value}" name="format" class="tone btn-check" id="tone-{i.index}">
+                            <label class="btn btn-default" for="tone-{i.index}">
+                                <f:translate
+                                    key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:deepl.write.tone.{tone.name}"
+                                    default="{tone.value}"
+                                />
+                            </label>
+                        </div>
+                    </f:for>
+                </div>
             </fieldset>
         </div>
     </div>

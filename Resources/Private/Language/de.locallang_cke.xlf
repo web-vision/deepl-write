@@ -47,6 +47,78 @@
 				<source>Apply changes</source>
 				<target>Änderungen übernehmen</target>
 			</trans-unit>
+			<trans-unit id="deepl.write.tone.DEFAULT">
+				<source>Default</source>
+				<target>Standard</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.ENTHUSIASTIC">
+				<source>Enthusiastic</source>
+				<target>Enthusiastisch</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.FRIENDLY">
+				<source>Friendly</source>
+				<target>Freundlich</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.CONFIDENTIAL">
+				<source>Confident</source>
+				<target>Selbstbewusst</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.DIPLOMATIC">
+				<source>Diplomatic</source>
+				<target>Diplomatisch</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.PREFER_ENTHUSIASTIC">
+				<source>Prefer Enthusiastic</source>
+				<target>Bevorzugt Enthusiastisch</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.PREFER_FRIENDLY">
+				<source>Prefer Friendly</source>
+				<target>Bevorzugt Freundlich</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.PREFER_CONFIDENTIAL">
+				<source>Prefer Confident</source>
+				<target>Bevorzugt Selbstbewusst</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.PREFER_DIPLOMATIC">
+				<source>Prefer Diplomatic</source>
+				<target>Bevorzugt Diplomatisch</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.DEFAULT">
+				<source>Default</source>
+				<target>Standard</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.SIMPLE">
+				<source>Simple</source>
+				<target>Einfach</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.BUSINESS">
+				<source>Business</source>
+				<target>Geschäftlich</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.ACADEMIC">
+				<source>Academic</source>
+				<target>Akademisch</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.CASUAL">
+				<source>Casual</source>
+				<target>Locker</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.PREFER_SIMPLE">
+				<source>Prefer Simple</source>
+				<target>Bevorzugt Einfach</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.PREFER_BUSINESS">
+				<source>Prefer Business</source>
+				<target>Bevorzugt Geschäftlich</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.PREFER_ACADEMIC">
+				<source>Prefer Academic</source>
+				<target>Bevorzugt Akademisch</target>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.PREFER_CASUAL">
+				<source>Prefer Casual</source>
+				<target>Bevorzugt Locker</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

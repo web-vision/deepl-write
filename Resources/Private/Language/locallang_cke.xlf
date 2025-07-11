@@ -37,6 +37,60 @@
 			<trans-unit id="cke.modal.button.save">
 				<source>Apply changes</source>
 			</trans-unit>
+			<trans-unit id="deepl.write.tone.DEFAULT">
+				<source>Default</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.ENTHUSIASTIC">
+				<source>Enthusiastic</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.FRIENDLY">
+				<source>Friendly</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.CONFIDENTIAL">
+				<source>Confident</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.DIPLOMATIC">
+				<source>Diplomatic</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.PREFER_ENTHUSIASTIC">
+				<source>Prefer Enthusiastic</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.PREFER_FRIENDLY">
+				<source>Prefer Friendly</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.PREFER_CONFIDENTIAL">
+				<source>Prefer Confident</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.tone.PREFER_DIPLOMATIC">
+				<source>Prefer Diplomatic</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.DEFAULT">
+				<source>Default</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.SIMPLE">
+				<source>Simple</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.BUSINESS">
+				<source>Business</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.ACADEMIC">
+				<source>Academic</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.CASUAL">
+				<source>Casual</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.PREFER_SIMPLE">
+				<source>Prefer Simple</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.PREFER_BUSINESS">
+				<source>Prefer Business</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.PREFER_ACADEMIC">
+				<source>Prefer Academic</source>
+			</trans-unit>
+			<trans-unit id="deepl.write.style.PREFER_CASUAL">
+				<source>Prefer Casual</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

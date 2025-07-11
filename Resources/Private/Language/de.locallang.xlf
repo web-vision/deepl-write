@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file
+		t3:id="1746974209"
+		source-language="en"
+		target-language="de"
+		datatype="plaintext"
+		original="messages"
+		date="2025-05-11T16:22:32Z"
+		product-name="deepl_write"
+	>
+		<header/>
+		<body>
+			<trans-unit id="backend.label">
+				<source>Optimize with DeepL Write</source>
+				<target>Mit DeepL Write optimieren</target>
+			</trans-unit>
+			<trans-unit id="localize.educate.deeplwriteHeader">
+				<source>Optimize with DeepL Write</source>
+				<target>Mit DeepL Write optimieren</target>
+			</trans-unit>
+			<trans-unit id="localize.educate.deeplwrite">
+				<source>Optimize your content with DeepL Write and choose your writing style, tone or form of address. E.g., Simple: For simple, easy-to-understand texts for a wide audience.</source>
+				<target>Optimieren Sie Ihre Inhalte mit DeepL Write und wählen Sie Ihren Schreibstil, Tonfall oder die Anredeform. Z.B. Einfach: Für simple, leicht verständliche Texte für ein breites Publikum.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

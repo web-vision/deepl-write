@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file
+		t3:id="1750181628"
+		source-language="en"
+		target-language="de"
+		datatype="plaintext"
+		original="messages"
+		date="2025-06-17T19:34:32Z"
+		product-name="deepl_write"
+	>
+		<header/>
+		<body>
+			<trans-unit id="cke.button.title">
+				<source>DeepL Write</source>
+				<target>DeepL Write</target>
+			</trans-unit>
+			<trans-unit id="cke.modal.title">
+				<source>Optimize text with DeepL Write</source>
+				<target>Text mit DeepL Write optimieren</target>
+			</trans-unit>
+			<trans-unit id="cke.modal.heading.style">
+				<source>Style</source>
+				<target>Stil</target>
+			</trans-unit>
+			<trans-unit id="cke.modal.heading.tone">
+				<source>Tone</source>
+				<target>Tonfall</target>
+			</trans-unit>
+			<trans-unit id="cke.modal.description.style">
+				<source>Select a style to rewrite your text in a way that fits your audience and goals.</source>
+				<target>Wählen Sie einen Stil, um Ihren Text für Ihre Zielgruppe und Ziele passend umzuschreiben.</target>
+			</trans-unit>
+			<trans-unit id="cke.modal.description.tone">
+				<source>Select the desired tone for your text</source>
+				<target>Wählen Sie den gewünschten Tonfall für Ihren Text</target>
+			</trans-unit>
+			<trans-unit id="cke.modal.description">
+				<source>You can optimize your text by using the DeepL Write API. For some languages, you can choose the style or tone. Only one or the other is possible.</source>
+				<target>Sie können Ihren Text mithilfe der DeepL Write API optimieren. Für einige Sprachen können Sie den Stil oder Tonfall wählen. Nur eines von beiden ist möglich.</target>
+			</trans-unit>
+			<trans-unit id="cke.modal.button.optimize">
+				<source>Optimize text</source>
+				<target>Text optimieren</target>
+			</trans-unit>
+			<trans-unit id="cke.modal.button.save">
+				<source>Apply changes</source>
+				<target>Änderungen übernehmen</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

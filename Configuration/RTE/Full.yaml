@@ -1,0 +1,59 @@
+imports:
+  - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Full.yaml' }
+
+editor:
+  config:
+    importModules:
+      - { module: '@web-vision/deepl-write/deeplwrite-plugin.js', exports: [ 'Deeplwrite' ] }
+    toolbar:
+      items:
+        - removeFormat
+        - undo
+        - redo
+        # grouping separator
+        - '|'
+        - findAndReplace
+        - link
+        - '|'
+        - insertTable
+        - tableColumn
+        - tableRow
+        - mergeTableCells
+        - TableProperties
+        - TableCellProperties
+        - '|'
+        - selectAll
+        - '|'
+        - sourceEditing
+        - showBlocks
+        - horizontalLine
+        # line break
+        - '-'
+        - bold
+        - italic
+        - underline
+        - strikethrough
+        - subscript
+        - superscript
+        - softhyphen
+        - '|'
+        - bulletedList
+        - numberedList
+        - blockQuote
+        - indent
+        - outdent
+        - alignment
+        - '|'
+        - specialCharacters
+        - '-'
+        - style
+        - heading
+        - fontFamily
+        - fontBackgroundColor
+        - fontColor
+        - fontSize
+        - textPartLanguage
+        - highlight
+        - highlight:greenMarker
+        - '|'
+        - deeplwrite

@@ -1,0 +1,17 @@
+imports:
+  - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Minimal.yaml' }
+
+editor:
+  config:
+    importModules:
+      - { module: '@web-vision/deepl-write/deeplwrite-plugin.js', exports: [ 'Deeplwrite' ] }
+    toolbar:
+      items:
+        - bold
+        - italic
+        - '|'
+        - clipboard
+        - undo
+        - redo
+        - '|'
+        - deeplwrite

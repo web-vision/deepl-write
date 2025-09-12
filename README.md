@@ -42,6 +42,28 @@ configured for both extension in their respective extension configuration.
 > api key is required for this extension, which can also be used for the
 > `deepltranslate-core` or using there a free key.
 
+### RTE Styling implementation
+
+A styling implementation is added to improve your writing directly inside your
+RTE. This needs some adjustments to your RTE configuration:
+
+```yaml
+editor:
+  config:
+    importModules:
+      # your already existing modules
+      - { module: '@web-vision/deepl-write/deeplwrite-plugin.js', exports: [ 'Deeplwrite' ] }
+    toolbar:
+      items:
+        # Your existing configuration
+        - '|'
+        - deeplwrite
+```
+
+This adds a button to the RTE controls, which allows you to use the overlay for
+the writing style. The button is shown disabled, if your API key is not allowed
+using the DeepL Write API or no API key is set.
+
 ## Sponsors
 
 We appreciate very much the sponsorships of the developments and features in

@@ -12,6 +12,8 @@ services:
 
   WebVision\DeeplWrite\Controller\CkEditorController:
     public: true
+  WebVision\DeeplWrite\Controller\ReadabilityController:
+    public: true
 
   WebVision\DeeplWrite\Configuration\ConfigurationInterface:
     class: WebVision\DeeplWrite\Configuration\Configuration
@@ -36,3 +38,14 @@ services:
         identifier: 'deepl-write/translation-dropdown'
         event: WebVision\Deepl\Base\Event\ViewHelpers\ModifyInjectVariablesViewHelperEvent
         after: 'deepl-base/default-translation, deepltranslate-core/translation-dropdown'
+
+  WebVision\DeeplWrite\Readability\Calculator\FleschKincaidEnglish:
+    tags:
+      - name: deepl.readability
+  WebVision\DeeplWrite\Readability\Calculator\FleschKincaidGerman:
+    tags:
+      - name: deepl.readability
+
+  WebVision\DeeplWrite\Readability\ReadabilityCalculatorRegistry:
+    arguments:
+      - !tagged_iterator deepl.readability

@@ -4,6 +4,67 @@
     xmlns:deeplWrite="http://typo3.org/ns/WebVision/DeeplWrite/ViewHelpers"
     data-namespace-typo3-fluid="true"
 >
+<style>
+    /* CSS */
+    .progress {
+        --value: 0; /* 0–100 */
+
+        position: relative;
+        width: 100%;
+        height: 20px;
+        border-radius: var(--typo3-input-border-radius);
+        margin-top: 20px;
+        margin-bottom: 10px;
+
+        /* Full-width rainbow background (not clipped) */
+        background: linear-gradient(
+            to right,
+            #ff0000,
+            #ff7a00,
+            #ffd400,
+            #a8ff00,
+            #00a400
+        );
+        box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+        overflow: visible;
+    }
+
+    /* Slim vertical marker showing the current percentage */
+    .progress .marker {
+        position: absolute;
+        top: -4px;
+        bottom: -4px;
+        width: 2px;
+        left: calc(var(--value) * 1%);
+        transform: translateX(-1px);
+        background: #111;
+        border-radius: 2px;
+        box-shadow:
+            0 0 0 2px #fff,
+            0 0 0 3px rgba(0,0,0,0.06);
+        pointer-events: none;
+    }
+
+    /* Percentage label that follows the marker */
+    .progress .label {
+        position: absolute;
+        left: calc(var(--value) * 1%);
+        top: -22px;
+        transform: translateX(-50%);
+        padding: 0 6px;
+        height: 18px;
+        display: inline-flex;
+        align-items: center;
+        border-radius: 3px;
+        background: #fff;
+        border: 1px solid rgba(0,0,0,0.12);
+        font: 600 12px/1 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        color: #111;
+        white-space: nowrap;
+        user-select: none;
+        pointer-events: none;
+    }
+</style>
 <div class="col-md-12">
     <div class="row">
         <p>
@@ -88,12 +149,24 @@
     <fieldset class="form-section">
         <div class="row">
         <div class="col-md-6 col-xs-12">
-            <label for="original" class="form-label t3js-formengine-label">Original</label>
-            <textarea rows="20" class="form-control t3js-formengine-textarea formengine-textarea" id="original"></textarea>
+            <label for="original" class="form-label t3js-formengine-label">
+                <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.original.heading"/>
+            </label>
+            <div class="progress" id="original-readability" style="--value: 65" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65">
+                <span class="marker" aria-hidden="true"></span>
+                <span class="label">65%</span>
+            </div>
+            <textarea rows="10" class="form-control t3js-formengine-textarea formengine-textarea" id="original"></textarea>
         </div>
         <div class="col-md-6 col-xs-12">
-            <label for="optimized" class="form-label t3js-formengine-label">Optimized</label>
-            <textarea rows="20" class="form-control t3js-formengine-textarea formengine-textarea" id="optimized"></textarea>
+            <label for="optimized" class="form-label t3js-formengine-label">
+                <f:translate key="LLL:EXT:deepl_write/Resources/Private/Language/locallang_cke.xlf:cke.modal.optimized.heading"/>
+            </label>
+            <div class="progress" id="optimized-readability" style="--value: 0" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span class="marker" aria-hidden="true"></span>
+                <span class="label">0%</span>
+            </div>
+            <textarea rows="10" class="form-control t3js-formengine-textarea formengine-textarea" id="optimized"></textarea>
         </div>
         </div>
     </fieldset>

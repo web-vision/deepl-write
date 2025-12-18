@@ -20,7 +20,7 @@ TYPO3 extension for DeepL Write integration. Write better texts
 
 ## Installation
 
-Install with your flavour:
+Install with your flavor:
 
 * Extension Manager
 * composer

@@ -63,10 +63,10 @@ jobs:
 
       - name: "Render documentation"
         run: |
-          Build/Scripts/runTests.sh -s renderDocumentation && \
+          Build/Scripts/runTests.sh -s renderDocumentation
           mkdir -p tailor-version-artefact && \
           cd Documentation-GENERATED-temp && \
-          zip -r ../tailor-version-artefact/${{ env.DETECTED_EXTENSION_KEY }}_${{ env.version }}-documentation.zip
+          zip -r ../tailor-version-artefact/${{ env.DETECTED_EXTENSION_KEY }}_${{ env.version }}-documentation.zip .
 
       # Note that when release already exists for tag, only files will be uploaded and lets this acting as a
       # fallback to ensure that a real GitHub release is created for the tag along with extension artifacts.

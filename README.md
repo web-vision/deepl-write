@@ -3,19 +3,20 @@
 TYPO3 extension for DeepL Write integration. Write better texts
 
 > [!IMPORTANT]
-> This is a development preview. Please use it at your own risk.
+> This extension is still in a early development phase and still
+> considered unstable and releases as beta version.
 
-|                  | URL                                          |
-|------------------|----------------------------------------------|
-| **Repository:**  | https://github.com/web-vision/deepl-write    |
-| **Read online:** | -                                            |
-| **TER:**         | -                                            |
+|                  | URL                                                         |
+|------------------|-------------------------------------------------------------|
+| **Repository:**  | https://github.com/web-vision/deepl-write                   |
+| **Read online:** | https://docs.typo3.org/p/web-vision/deepl-write/main/en-us/ |
+| **TER:**         | https://extensions.typo3.org/extension/deepl_write/         |
 
 ## Compatibility
 
-| Branch | Version | TYPO3     | PHP                                               |
-|--------|---------|-----------|---------------------------------------------------|
-| main   | 1.x-dev | v12 + v13 | 8.1, 8.2, 8.3, 8.4 (depending on TYPO3)           |
+| Branch | Version | TYPO3     | PHP                                          |
+|--------|---------|-----------|----------------------------------------------|
+| main   | 1.x-dev | v12 + v13 | 8.1, 8.2, 8.3, 8.4, 8.5 (depending on TYPO3) |
 
 ## Installation
 
@@ -27,8 +28,15 @@ Install with your flavour:
 We prefer composer installation:
 
 ```bash
-composer config repositories."deepl-write" vcs web-vision/deepl-write && \
 composer require -W 'web-vision/deepl-write':'^1.0'
+```
+
+In case you had a repository configured from early EAP phase, the repository
+can be removed:
+
+```bash
+composer config --unset repositories."deepl-write" && \
+  composer update --lock
 ```
 
 ## Configuration

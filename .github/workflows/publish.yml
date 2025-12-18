@@ -33,6 +33,15 @@ jobs:
         run: |
           echo "DETECTED_EXTENSION_KEY=$(cat composer.json | jq -r '.extra."typo3/cms"."extension-key"' )" >> "$GITHUB_ENV"
 
+      - name: Get comment
+        id: get-comment
+        run: |
+          {
+            echo 'terReleaseNotes<<EOF'
+            echo "https://github.com/${{ github.repository }}/releases/tag/${{ env.version }}"
+            echo EOF
+          } >> "$GITHUB_ENV"
+
       - name: Setup PHP 8.1
         if: github.event.base_ref == 'refs/heads/main'
         uses: shivammathur/setup-php@v2
@@ -52,6 +61,13 @@ jobs:
         run: |
           php ~/.composer/vendor/bin/tailor create-artefact ${{ env.version }} ${{ env.DETECTED_EXTENSION_KEY }}
 
+      - name: "Render documentation"
+        run: |
+          Build/Scripts/runTests.sh -s renderDocumentation && \
+          mkdir -p tailor-version-artefact && \
+          cd Documentation-GENERATED-temp && \
+          zip -r ../tailor-version-artefact/${{ env.DETECTED_EXTENSION_KEY }}_${{ env.version }}-documentation.zip
+
       # Note that when release already exists for tag, only files will be uploaded and lets this acting as a
       # fallback to ensure that a real GitHub release is created for the tag along with extension artifacts.
       - name: Create release and upload artifacts in the same step
@@ -65,12 +81,11 @@ jobs:
           generate_release_notes: true
           files: |
             tailor-version-artefact/${{ env.DETECTED_EXTENSION_KEY }}_${{ env.version }}.zip
+            tailor-version-artefact/${{ env.DETECTED_EXTENSION_KEY }}_${{ env.version }}-documentation.zip
             LICENSE
           fail_on_unmatched_files: true
 
-# @todo No public TER release yet. TER Upload package uploaded to GitHub release(s) can be used to
-#       upload versions later to TER manually when making extension public.
-#      - name: Publish to TER
-#        run: |
-#          php ~/.composer/vendor/bin/tailor ter:publish --comment "${{ env.terReleaseNotes }}" ${{ env.version }} \
-#            --artefact=tailor-version-artefact/${{ env.DETECTED_EXTENSION_KEY }}_${{ env.version }}.zip
+      - name: Publish to TER
+        run: |
+          php ~/.composer/vendor/bin/tailor ter:publish --comment "${{ env.terReleaseNotes }}" ${{ env.version }} \
+            --artefact=tailor-version-artefact/${{ env.DETECTED_EXTENSION_KEY }}_${{ env.version }}.zip

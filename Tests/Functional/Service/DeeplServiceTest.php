@@ -10,6 +10,10 @@ use WebVision\DeeplWrite\Tests\Functional\Helper\AbstractDeepLTestCase;
 
 final class DeeplServiceTest extends AbstractDeepLTestCase
 {
+    protected array $coreExtensionsToLoad = [
+        'typo3/cms-setup',
+    ];
+
     protected array $testExtensionsToLoad = [
         'web-vision/deepl-base',
         'web-vision/deepl-write',

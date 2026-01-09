@@ -1,14 +1,9 @@
+# This file is only an example and should help to implement the DeepL write plugin to customized RTE configurations.
+# The configuration below is only short-handed and not full ready usable.
 editor:
   config:
     importModules:
       - { module: '@web-vision/deepl-write/deeplwrite-plugin.js', exports: [ 'Deeplwrite' ] }
     toolbar:
       items:
-        - bold
-        - italic
-        - '|'
-        - clipboard
-        - undo
-        - redo
-        - '|'
         - deeplwrite

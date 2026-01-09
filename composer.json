@@ -16,6 +16,7 @@
         "phpstan/phpstan": "^1.10",
         "phpunit/phpunit": "^10.5",
         "saschaegerer/phpstan-typo3": "^1.9",
+        "typo3/cms-rte-ckeditor": "^12.4 || ^13.4",
         "typo3/testing-framework": "^8.2.7"
     },
     "license": "GPL-2.0-or-later",
@@ -60,6 +61,7 @@
         }
     },
     "suggest": {
-        "web-vision/deepltranslate-core": "*"
+        "web-vision/deepltranslate-core": "*",
+        "typo3/cms-rte-ckeditor": "Allows Additional RTE feature optimizing text"
     }
 }

@@ -24,6 +24,7 @@ $EM_CONF[$_EXTKEY] = [
             'install' => '*',
             'enable_translated_content' => '*',
             'deepltranslate_core' => '*',
+            'rte_ckeditor' => '12.4.0-13.4.99',
         ],
     ],
 ];

@@ -13,7 +13,7 @@ You can download the extension using one of the following methods:
 
     ..  code-block:: bash
 
-        composer require -W 'web-vision/deepl-write':'^1.0'
+        composer require -W 'web-vision/deepl-write':'^2.0'
 
     in your TYPO3 installation.
 

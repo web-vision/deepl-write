@@ -29,7 +29,7 @@ Install with your flavor:
 We prefer composer installation:
 
 ```bash
-composer require -W 'web-vision/deepl-write':'^1.0'
+composer require -W 'web-vision/deepl-write':'^2.0'
 ```
 
 In case you had a repository configured from early EAP phase, the repository

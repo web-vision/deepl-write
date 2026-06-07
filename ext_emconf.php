@@ -11,11 +11,11 @@ $EM_CONF[$_EXTKEY] = [
     'author_company' => 'web-vision GmbH',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.4.0-13.4.99',
-            'backend' => '12.4.0-13.4.99',
-            'php' => '8.1.0-8.5.99',
             'deepl_base' => '1.0.4-1.99.99',
             'deeplcom_deepl_php' => '1.18.0-1.18.99',
+            'php' => '8.2.0-8.5.99',
+            'typo3' => '13.4.0-13.4.99',
+            'backend' => '13.4.0-13.4.99',
         ],
         'suggests' => [
             'container' => '',

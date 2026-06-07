@@ -36,7 +36,8 @@
             "version": "1.0.3-dev"
         },
         "branch-alias": {
-            "dev-main": "1.x-dev"
+            "dev-main": "2.x-dev",
+            "dev-1": "1.x-dev"
         }
     },
     "config": {

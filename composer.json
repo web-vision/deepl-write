@@ -53,7 +53,9 @@
     },
     "autoload": {
         "psr-4": {
-            "WebVision\\DeeplWrite\\": "Classes/"
+            "WebVision\\DeeplWrite\\": "Classes/",
+            "WebVision\\DeeplWrite\\Core13\\": "Core13/",
+            "WebVision\\DeeplWrite\\Core14\\": "Core14/"
         }
     },
     "autoload-dev": {

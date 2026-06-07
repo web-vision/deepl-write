@@ -9,6 +9,9 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use WebVision\DeeplWrite\Generator\WriteDropdownGenerator;
 
+/**
+ * @todo Verify if this is still needed for TYPO3v14 and if not move at a later point.
+ */
 final readonly class RenderWriteSelectEventListener
 {
     public function __construct(

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WebVision\DeeplWrite\Event\Listener;
+namespace WebVision\DeeplWrite\Core13\Event\Listener;
 
 use TYPO3\CMS\Backend\Routing\Exception\RouteNotFoundException;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
@@ -15,6 +15,8 @@ use WebVision\DeeplWrite\Domain\Enum\RephraseSupportedDeepLLanguage;
 /**
  * This EventListener registers the partial and the dropdown options
  * for the translation/write optimization dropdown in PageView
+ *
+ * @internal and not part of public API.
  */
 final class DeeplWritePageViewRegistrationEventListener
 {

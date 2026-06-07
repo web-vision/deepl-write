@@ -71,7 +71,7 @@ Prerequisites:
 
 ```bash
 echo '>> Create release based on configuration' ; \
-  RELEASE_BRANCH='main' ; \
+  RELEASE_BRANCH='1' ; \
   RELEASE_VERSION='1.0.2' ; \
   DEV_VERSION='1.0.3' ; \
   echo ">> Checkout branches" && \

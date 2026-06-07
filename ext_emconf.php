@@ -3,7 +3,7 @@
 $EM_CONF[$_EXTKEY] = [
     'title' => 'DeepL Write',
     'description' => 'DeepL Write support for TYPO3. Write better texts, translate to simple language',
-    'version' => '1.0.3',
+    'version' => '2.0.0',
     'category' => 'misc',
     'state' => 'stable',
     'author' => 'web-vision GmbH Team',

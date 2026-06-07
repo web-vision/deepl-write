@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace WebVision\DeeplWrite\Event\Listener;
+namespace WebVision\DeeplWrite\Core13\Event\Listener;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use WebVision\Deepl\Base\Event\LocalizationProcessPrepareDataHandlerCommandMapEvent;
 
 /**
- * @todo Move to `Core13/` only code execution.
+ * @internal and not part of public API.
  */
 final class ProcessLocalizationModeEventListener
 {

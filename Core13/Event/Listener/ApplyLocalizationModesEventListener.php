@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WebVision\DeeplWrite\Event\Listener;
+namespace WebVision\DeeplWrite\Core13\Event\Listener;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Information\Typo3Version;
@@ -14,7 +14,7 @@ use WebVision\Deepl\Base\Localization\LocalizationMode;
  * event {@see GetLocalizationModesEvent} dispatched by extension `deepl_base`
  * in {@see LocalizationController::dispatchGetLocalizationModesEvent()}.
  *
- * @todo Move to `Core13/` only code execution.
+ * @internal and not part of public API.
  */
 final class ApplyLocalizationModesEventListener
 {

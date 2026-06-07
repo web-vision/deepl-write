@@ -32,7 +32,8 @@
             "ignore-as-root": false,
             "web-dir": ".Build/Web",
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
-            "app-dir": ".Build"
+            "app-dir": ".Build",
+            "version": "1.0.3-dev"
         },
         "branch-alias": {
             "dev-main": "1.x-dev"

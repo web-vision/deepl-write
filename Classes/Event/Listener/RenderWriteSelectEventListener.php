@@ -5,13 +5,9 @@ declare(strict_types=1);
 namespace WebVision\DeeplWrite\Event\Listener;
 
 use TYPO3\CMS\Backend\Controller\Event\RenderAdditionalContentToRecordListEvent;
-use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use WebVision\DeeplWrite\Generator\WriteDropdownGenerator;
 
-#[AsEventListener(
-    identifier: 'deeplWrite/render-select'
-)]
 final class RenderWriteSelectEventListener
 {
     public function __construct(

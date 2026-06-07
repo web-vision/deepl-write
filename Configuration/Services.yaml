@@ -36,3 +36,15 @@ services:
         identifier: 'deepl-write/translation-dropdown'
         event: WebVision\Deepl\Base\Event\ViewHelpers\ModifyInjectVariablesViewHelperEvent
         after: 'deepl-base/default-translation, deepltranslate-core/translation-dropdown'
+
+  WebVision\DeeplWrite\Event\Listener\RenderWriteSelectEventListener:
+    tags:
+      - name: 'event.listener'
+        identifier: 'deeplWrite/render-select'
+        event: TYPO3\CMS\Backend\Controller\Event\RenderAdditionalContentToRecordListEvent
+
+  WebVision\DeeplWrite\Event\Listener\BlindConfigurationOptionsEventListener:
+    tags:
+      - name: 'event.listener'
+        identifier: 'deepl-write/blind-configuration-options'
+        event: TYPO3\CMS\Lowlevel\Event\ModifyBlindedConfigurationOptionsEvent

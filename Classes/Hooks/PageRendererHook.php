@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace WebVision\DeeplWrite\Hooks;
 
+use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 use TYPO3\CMS\Core\Page\PageRenderer;
 
+#[Autoconfigure(public: true)]
 final class PageRendererHook
 {
     /**

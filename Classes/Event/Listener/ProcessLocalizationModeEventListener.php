@@ -4,10 +4,18 @@ declare(strict_types=1);
 
 namespace WebVision\DeeplWrite\Event\Listener;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use WebVision\Deepl\Base\Event\LocalizationProcessPrepareDataHandlerCommandMapEvent;
 
+/**
+ * @todo Move to `Core13/` only code execution.
+ */
 final class ProcessLocalizationModeEventListener
 {
+    #[AsEventListener(
+        identifier: 'deeplwrite/deeplwrite-localization-modes-process',
+        after: 'deepl-base/process-default-typo3-localization-modes',
+    )]
     public function __invoke(LocalizationProcessPrepareDataHandlerCommandMapEvent $event): void
     {
         // @todo Consider to drop `deepltranslateauto` mode.

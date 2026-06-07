@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace WebVision\DeeplWrite\Configuration;
 
+use Symfony\Component\DependencyInjection\Attribute\AsAlias;
 use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException;
 use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExistException;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+#[AsAlias(id: ConfigurationInterface::class, public: true)]
 final class Configuration implements ConfigurationInterface
 {
     private string $apiKey;

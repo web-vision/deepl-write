@@ -7,6 +7,7 @@ namespace WebVision\DeeplWrite\Event\Listener;
 use TYPO3\CMS\Backend\Routing\Exception\RouteNotFoundException;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\View\PageLayoutContext;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use WebVision\Deepl\Base\Event\ViewHelpers\ModifyInjectVariablesViewHelperEvent;
 use WebVision\DeeplWrite\Domain\Enum\RephraseSupportedDeepLLanguage;
@@ -17,6 +18,10 @@ use WebVision\DeeplWrite\Domain\Enum\RephraseSupportedDeepLLanguage;
  */
 final class DeeplWritePageViewRegistrationEventListener
 {
+    #[AsEventListener(
+        identifier: 'deepl-write/translation-dropdown',
+        after: 'deepl-base/default-translation, deepltranslate-core/translation-dropdown',
+    )]
     public function __invoke(ModifyInjectVariablesViewHelperEvent $event): void
     {
         if ($event->getIdentifier() !== 'languageTranslationDropdown') {

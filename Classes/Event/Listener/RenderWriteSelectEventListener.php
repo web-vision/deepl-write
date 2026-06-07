@@ -9,16 +9,16 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use WebVision\DeeplWrite\Generator\WriteDropdownGenerator;
 
-#[AsEventListener(
-    identifier: 'deeplWrite/render-select'
-)]
-final class RenderWriteSelectEventListener
+final readonly class RenderWriteSelectEventListener
 {
     public function __construct(
-        private readonly WriteDropdownGenerator $writeDropdownGenerator,
+        private WriteDropdownGenerator $writeDropdownGenerator,
     ) {
     }
 
+    #[AsEventListener(
+        identifier: 'deeplWrite/render-select'
+    )]
     public function __invoke(RenderAdditionalContentToRecordListEvent $event): void
     {
         $request = $event->getRequest();

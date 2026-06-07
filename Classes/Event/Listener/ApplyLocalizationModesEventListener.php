@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WebVision\DeeplWrite\Event\Listener;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Information\Typo3Version;
 use WebVision\Deepl\Base\Event\GetLocalizationModesEvent;
 use WebVision\Deepl\Base\Localization\LocalizationMode;
@@ -12,9 +13,15 @@ use WebVision\Deepl\Base\Localization\LocalizationMode;
  * Provides DeepL Write related localization modes by listening to the PSR-14
  * event {@see GetLocalizationModesEvent} dispatched by extension `deepl_base`
  * in {@see LocalizationController::dispatchGetLocalizationModesEvent()}.
+ *
+ * @todo Move to `Core13/` only code execution.
  */
 final class ApplyLocalizationModesEventListener
 {
+    #[AsEventListener(
+        identifier: 'deeplwrite/deeplwrite-localization-modes-determine',
+        after: 'deepl-base/determine-default-typo3-localization-modes',
+    )]
     public function __invoke(GetLocalizationModesEvent $event): void
     {
         $majorVersion = (new Typo3Version())->getMajorVersion();

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace WebVision\DeeplWrite\Hooks;
 
+use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Site\SiteFinder;
@@ -14,6 +15,7 @@ use WebVision\DeeplWrite\FieldType\FieldTypeRegistry;
 use WebVision\DeeplWrite\Service\DeeplService;
 use WebVision\DeeplWrite\Service\LanguageService;
 
+#[Autoconfigure(public: true)]
 final class WriteHook
 {
     public function __construct(

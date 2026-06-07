@@ -7,6 +7,7 @@ namespace WebVision\DeeplWrite\Controller;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Backend\Attribute\AsController;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextFactory;
 use TYPO3\CMS\Fluid\View\StandaloneView;
@@ -21,6 +22,7 @@ use WebVision\DeeplWrite\Service\HtmlParser;
  * This class is meant to be used within the DeepL write extension and therefore
  * no public API. Endpoints can change without further information.
  */
+#[AsController]
 final class CkEditorController
 {
     public function __construct(

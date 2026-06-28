@@ -46,6 +46,9 @@ final class RephraseSupportedDeepLLanguage
         ],
     ];
 
+    /**
+     * @return list<string>
+     */
     public static function getAllLanguages(): array
     {
         return array_keys(self::LANGUAGES);
@@ -66,7 +69,7 @@ final class RephraseSupportedDeepLLanguage
         if (!array_key_exists($language, self::LANGUAGES)) {
             return false;
         }
-        return self::LANGUAGES[$language]['writing_style'] ?? false;
+        return self::LANGUAGES[$language]['writing_style'];
     }
 
     public static function isToneSupportedByLanguage(string $language): bool
@@ -74,6 +77,6 @@ final class RephraseSupportedDeepLLanguage
         if (!array_key_exists($language, self::LANGUAGES)) {
             return false;
         }
-        return self::LANGUAGES[$language]['tone'] ?? false;
+        return self::LANGUAGES[$language]['tone'];
     }
 }

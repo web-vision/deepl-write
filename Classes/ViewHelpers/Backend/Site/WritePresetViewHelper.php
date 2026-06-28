@@ -8,6 +8,7 @@ use TYPO3\CMS\Core\Exception\SiteNotFoundException;
 use TYPO3\CMS\Core\Http\ServerRequest;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use WebVision\DeeplWrite\Domain\Enum\RephraseSupportedDeepLLanguage;
 use WebVision\DeeplWrite\Domain\Enum\RephraseToneDeepL;
@@ -22,7 +23,7 @@ final class WritePresetViewHelper extends AbstractViewHelper
     ) {
     }
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument('siteLanguageIds', 'string', 'Comma separated site languages', true);
     }
@@ -31,7 +32,11 @@ final class WritePresetViewHelper extends AbstractViewHelper
     {
         // @todo $siteLanguageIds is not used - ViewHelper argument make not sense. Should be rechecked.
         $siteLanguageIds = GeneralUtility::intExplode(',', $this->arguments['siteLanguageIds'], true);
-        $request = $this->renderingContext->getRequest();
+        $renderingContext = $this->renderingContext;
+        if (!$renderingContext instanceof RenderingContext) {
+            return '';
+        }
+        $request = $renderingContext->getRequest();
         if (!$request instanceof ServerRequest) {
             return '';
         }

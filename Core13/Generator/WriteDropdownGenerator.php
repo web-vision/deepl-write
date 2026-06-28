@@ -75,10 +75,6 @@ final class WriteDropdownGenerator
             $output .= '<option value="' . htmlspecialchars($targetUrl) . '">' . htmlspecialchars($languageTitle) . '</option>';
         }
 
-        if ($output === '') {
-            return '';
-        }
-
         return sprintf(
             '<option value="">%s</option>%s',
             htmlspecialchars($this->getLocalization()->sL('LLL:EXT:deepl_write/Resources/Private/Language/locallang.xlf:backend.label')),
@@ -138,6 +134,7 @@ final class WriteDropdownGenerator
     }
 
     /**
+     * @param array<string, mixed> $parameters
      * @throws RouteNotFoundException
      */
     private function buildBackendRoute(string $route, array $parameters): string

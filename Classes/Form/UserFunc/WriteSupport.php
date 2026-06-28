@@ -11,6 +11,9 @@ use WebVision\DeeplWrite\Domain\Enum\RephraseWritingStyleDeepL;
 
 final class WriteSupport
 {
+    /**
+     * @param array<string, mixed> $configuration
+     */
     public function getSupportedLanguageForField(array &$configuration): void
     {
         foreach (RephraseSupportedDeepLLanguage::getAllLanguages() as $supportedLanguage) {
@@ -21,6 +24,9 @@ final class WriteSupport
         }
     }
 
+    /**
+     * @param array<string, mixed> $configuration
+     */
     public function getSupportedToneForField(array &$configuration): void
     {
         foreach (RephraseToneDeepL::cases() as $supportedTone) {
@@ -31,6 +37,9 @@ final class WriteSupport
         }
     }
 
+    /**
+     * @param array<string, mixed> $configuration
+     */
     public function getSupportedWritingStyleForField(array &$configuration): void
     {
         foreach (RephraseWritingStyleDeepL::cases() as $supportedWritingStyle) {
@@ -42,7 +51,7 @@ final class WriteSupport
     }
 
     /**
-     * @param array{record?: array{deeplTargetLanguage?: array<int, string>|string|null}} $params
+     * @param array{record?: array{deeplWriteLanguage?: array<int, string>|string|null}} $params
      */
     public function languageIsRephraseSupported(array $params, EvaluateDisplayConditions $conditions): bool
     {

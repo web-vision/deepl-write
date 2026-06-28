@@ -95,6 +95,7 @@ final class DeeplWritePageViewRegistrationEventListener
     }
 
     /**
+     * @param array<string, mixed> $parameters
      * @throws RouteNotFoundException
      */
     private function buildBackendRoute(string $route, array $parameters): string

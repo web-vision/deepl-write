@@ -16,6 +16,7 @@
         "phpstan/phpstan": "^1.12.33",
         "phpunit/phpunit": "^10.5",
         "saschaegerer/phpstan-typo3": "^1.10.2",
+        "typo3/cms-lowlevel": "^13.4",
         "typo3/testing-framework": "^8.3.1"
     },
     "license": "GPL-2.0-or-later",

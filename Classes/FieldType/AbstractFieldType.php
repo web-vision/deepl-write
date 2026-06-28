@@ -6,6 +6,9 @@ namespace WebVision\DeeplWrite\FieldType;
 
 abstract class AbstractFieldType implements FieldTypeInterface
 {
+    /**
+     * @param array<string, mixed> $configuration
+     */
     final public function __construct(
         protected readonly array $configuration,
         protected readonly string $table,

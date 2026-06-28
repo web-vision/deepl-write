@@ -43,14 +43,17 @@ final class WriteHook
             return;
         }
 
-        $recordId = $dataHandler->localize($table, $id, $value);
+        $recordId = $dataHandler->localize($table, (int)$id, $value);
         // localization went wrong
         if ($recordId === false) {
             return;
         }
 
-        $originalRecord = BackendUtility::getRecord($table, $id);
-        $translatedRecord = BackendUtility::getRecordLocalization($table, $id, $value);
+        $originalRecord = BackendUtility::getRecord($table, (int)$id);
+        if ($originalRecord === null) {
+            return;
+        }
+        $translatedRecord = BackendUtility::getRecordLocalization($table, (int)$id, $value);
 
         if ($translatedRecord === null) {
             return;
@@ -66,6 +69,10 @@ final class WriteHook
         $commandIsProcessed = true;
     }
 
+    /**
+     * @param array<string, mixed> $translatedRecord
+     * @param array<string, mixed> $originalRecord
+     */
     private function processRecordFieldsAndUpdate(string $table, array $translatedRecord, array $originalRecord, int|string $languageId): void
     {
         $pid = ($table === 'pages') ? $originalRecord['uid'] : $originalRecord['pid'];

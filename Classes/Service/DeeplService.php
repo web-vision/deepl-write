@@ -22,7 +22,7 @@ use WebVision\DeeplWrite\Exception\RephraseConfigurationException;
 final class DeeplService
 {
     private const SENTENCE_SPLIT = '/([.?!]\s)/';
-    private ?DeepLClient $deeplClient;
+    private DeepLClient $deeplClient;
 
     public function __construct(
         ClientFactory $clientFactory,
@@ -76,10 +76,7 @@ final class DeeplService
     }
 
     /**
-     * @param array{
-     *     writing_style?: string,
-     *     tone?: string
-     * }|empty $options
+     * @param array<string, string> $options
      * @throws DeepLException
      */
     private function optimizeText(
@@ -92,6 +89,9 @@ final class DeeplService
             $targetLanguage,
             $options
         );
+        if (is_array($rephrased)) {
+            $rephrased = $rephrased[0];
+        }
 
         return (string)$rephrased;
     }
@@ -107,6 +107,9 @@ final class DeeplService
         }
 
         $sentences = preg_split(self::SENTENCE_SPLIT, $text, -1, PREG_SPLIT_DELIM_CAPTURE);
+        if ($sentences === false) {
+            return [$text];
+        }
         $countResult = count($sentences);
 
         $snippets = [];

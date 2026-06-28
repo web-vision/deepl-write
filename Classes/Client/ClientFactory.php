@@ -36,6 +36,9 @@ final class ClientFactory
     ) {
     }
 
+    /**
+     * @param array<string, mixed> $options
+     */
     public function buildDeeplClient(array $options = []): DeepLClient
     {
         if ($this->configuration->getApiKey() === '') {

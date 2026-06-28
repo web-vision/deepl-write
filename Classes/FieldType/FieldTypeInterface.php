@@ -6,6 +6,9 @@ namespace WebVision\DeeplWrite\FieldType;
 
 interface FieldTypeInterface
 {
+    /**
+     * @param array<string, mixed> $configuration
+     */
     public function __construct(
         array $configuration,
         string $table,

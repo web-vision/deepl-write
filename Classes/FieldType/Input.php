@@ -9,7 +9,7 @@ final class Input extends AbstractFieldType
     public function getTextForProcessing(
         string|int $value
     ): array {
-        return [$value];
+        return [(string)$value];
     }
 
     public function getValueForDatabase(array $processedText): int|string

@@ -17,6 +17,9 @@ use DOMText;
  */
 final class HtmlParser
 {
+    /**
+     * @return array<non-empty-string, string>
+     */
     public function splitHtml(string $value): array
     {
         // The template tag is necessary!
@@ -58,6 +61,9 @@ final class HtmlParser
          */
         $template = $domResult->firstChild;
         $generatedHtml = $domResult->saveXML($template);
+        if ($generatedHtml === false) {
+            return '';
+        }
         return str_replace(['<template>', '</template>'], '', $generatedHtml);
     }
 
@@ -69,13 +75,13 @@ final class HtmlParser
      * in the following structure: `<node type>|<number of the element in current level>,
      * for example, p|2 means 2nd element in current level and HTML tag <p></p>.
      *
+     * @param DOMNodeList<DOMNode> $nodeList
      * @return array<non-empty-string, string>
      */
     private function xmlToArray(DOMNodeList $nodeList, string $parentNodeName = ''): array
     {
         $result = [];
         $i = 0;
-        /** @var DOMNode $child */
         foreach ($nodeList as $node) {
             $nodeNameAndLevel = sprintf('%s%s|%d', $parentNodeName ? sprintf('%s>', $parentNodeName) : '', $node->nodeName, $i);
             if ($node->hasChildNodes()) {
@@ -84,7 +90,7 @@ final class HtmlParser
                     $this->xmlToArray($node->childNodes, $nodeNameAndLevel)
                 );
             } else {
-                $result[$nodeNameAndLevel] = $node->nodeValue;
+                $result[$nodeNameAndLevel] = (string)$node->nodeValue;
             }
             $i++;
         }
@@ -94,40 +100,49 @@ final class HtmlParser
     /**
      * Unflattens the processed array and makes it associative
      * for further processing
+     *
+     * @param array<array-key, mixed> $result
+     * @param list<string> $entryPointLevel
+     * @return array<array-key, mixed>
      */
-    private function addToResult(array $result, $entryPointLevel, string $value): array
+    private function addToResult(array $result, array $entryPointLevel, string $value): array
     {
         $currentEntryPointLevel = array_shift($entryPointLevel);
         if ($currentEntryPointLevel === null) {
-            $result = [$value];
-            return $result;
+            return [$value];
         }
         [$nodeType, $countInLevel] = explode('|', $currentEntryPointLevel);
-        $result[$countInLevel][$nodeType] ??= [];
-        $result[$countInLevel][$nodeType] = $this->addToResult($result[$countInLevel][$nodeType], $entryPointLevel, $value);
+        $subResult = $result[$countInLevel][$nodeType] ?? [];
+        if (!is_array($subResult)) {
+            $subResult = [];
+        }
+        $result[$countInLevel][$nodeType] = $this->addToResult($subResult, $entryPointLevel, $value);
 
         return $result;
     }
 
     /**
      * Adds all found nodes recursively to the DOM
+     *
+     * @param array<array-key, mixed> $currentProcessing
      */
     private function addToDomRecursive(DOMNode $parentNode, array $currentProcessing): void
     {
         foreach ($currentProcessing as $processingNode) {
             if (!is_array($processingNode)) {
                 // last node, text only
-                $parentNode->nodeValue = $processingNode;
+                $parentNode->nodeValue = is_scalar($processingNode) ? (string)$processingNode : '';
                 return;
             }
-            $currentNodeType = array_keys($processingNode)[0];
+            $currentNodeType = (string)(array_keys($processingNode)[0] ?? '');
             if ($currentNodeType === '#text') {
                 $currentNode = new DOMText();
             } else {
                 try {
                     $currentNode = new DOMElement($currentNodeType);
-                } catch (\DOMException $e) {
+                } catch (\DOMException) {
                     // @todo add more DOMNode properties
+                    continue;
                 }
             }
             $parentNode->appendChild($currentNode);

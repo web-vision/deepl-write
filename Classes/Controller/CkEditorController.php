@@ -50,13 +50,17 @@ final class CkEditorController
     public function optimizeTextAction(ServerRequestInterface $request): ResponseInterface
     {
         $data = $request->getParsedBody();
-        $splittedText = $this->htmlParser->splitHtml($data['text']);
-        foreach ($splittedText as $node => $text) {
+        $data = is_array($data) ? $data : [];
+        $text = (string)($data['text'] ?? '');
+        $style = (string)($data['style'] ?? '');
+        $tone = (string)($data['tone'] ?? '');
+        $splittedText = $this->htmlParser->splitHtml($text);
+        foreach ($splittedText as $node => $value) {
             $optimizedText = $this->deeplService->rephraseText(
-                $data['text'],
+                $text,
                 null,
-                RephraseWritingStyleDeepL::tryFrom($data['style']),
-                RephraseToneDeepL::tryFrom($data['tone'])
+                RephraseWritingStyleDeepL::tryFrom($style),
+                RephraseToneDeepL::tryFrom($tone)
             );
             $splittedText[$node] = $optimizedText;
         }

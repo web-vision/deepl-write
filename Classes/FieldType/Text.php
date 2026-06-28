@@ -14,6 +14,7 @@ final class Text extends AbstractFieldType
     public function getTextForProcessing(
         string|int $value
     ): array {
+        $value = (string)$value;
         if ($this->isRteField()) {
             $processing = $this->getHtmlParser()->splitHtml($value);
         } else {

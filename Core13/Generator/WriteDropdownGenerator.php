@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WebVision\DeeplWrite\Generator;
+namespace WebVision\DeeplWrite\Core13\Generator;
 
 use Doctrine\DBAL\Exception;
 use Psr\Http\Message\UriInterface;

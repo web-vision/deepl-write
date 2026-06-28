@@ -2,16 +2,13 @@
 
 declare(strict_types=1);
 
-namespace WebVision\DeeplWrite\Event\Listener;
+namespace WebVision\DeeplWrite\Core13\Event\Listener;
 
 use TYPO3\CMS\Backend\Controller\Event\RenderAdditionalContentToRecordListEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Site\Entity\Site;
-use WebVision\DeeplWrite\Generator\WriteDropdownGenerator;
+use WebVision\DeeplWrite\Core13\Generator\WriteDropdownGenerator;
 
-/**
- * @todo Verify if this is still needed for TYPO3v14 and if not move at a later point.
- */
 final readonly class RenderWriteSelectEventListener
 {
     public function __construct(

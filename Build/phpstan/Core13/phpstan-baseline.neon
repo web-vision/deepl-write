@@ -1,2 +1,25 @@
 parameters:
 	ignoreErrors:
+		-
+			message: '#^Method WebVision\\DeeplWrite\\FieldType\\Input\:\:getValueForDatabase\(\) never returns int so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: ../../../Classes/FieldType/Input.php
+
+		-
+			message: '#^Constant LIBXML_NOEMPTYTAG is not allowed for parameter \#2 \$options of method DOMDocument\:\:loadHTML\(\)\.$#'
+			identifier: argument.invalidConstant
+			count: 1
+			path: ../../../Classes/Service/HtmlParser.php
+
+		-
+			message: '#^Call to function method_exists\(\) with TYPO3\\CMS\\Backend\\View\\PageLayoutContext and ''getCurrentRequest'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: ../../../Core13/Event/Listener/DeeplWritePageViewRegistrationEventListener.php
+
+		-
+			message: '#^Property WebVision\\DeeplWrite\\Tests\\Functional\\Helper\\AbstractDeepLTestCase\:\:\$authKey \(string\) does not accept string\|false\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: ../../../Tests/Functional/Helper/AbstractDeepLTestCase.php

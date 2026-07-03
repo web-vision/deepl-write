@@ -8,9 +8,9 @@ use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Backend\Attribute\AsController;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\Core\Rendering\RenderingContextFactory;
-use TYPO3\CMS\Fluid\View\StandaloneView;
+use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
 use WebVision\DeeplWrite\Configuration\ConfigurationInterface;
 use WebVision\DeeplWrite\Domain\Enum\RephraseToneDeepL;
 use WebVision\DeeplWrite\Domain\Enum\RephraseWritingStyleDeepL;
@@ -30,6 +30,7 @@ final class CkEditorController
         private readonly ConfigurationInterface $configuration,
         private readonly DeeplService $deeplService,
         private readonly HtmlParser $htmlParser,
+        private readonly ViewFactoryInterface $viewFactory,
     ) {
     }
 
@@ -74,22 +75,20 @@ final class CkEditorController
 
     public function getEditMaskAction(ServerRequestInterface $request): ResponseInterface
     {
-        $renderingContext = GeneralUtility::makeInstance(RenderingContextFactory::class)->create(
-            templatePathsArray: [
-                'templateRootPaths' => ['EXT:deepl_write/Resources/Private/Backend/Templates/'],
-                ]
-        );
-        $renderingContext->setRequest($request);
-        $renderingContext->setControllerAction('Edit');
-        $renderingContext->setControllerName('CkEditor');
-        $view = GeneralUtility::makeInstance(StandaloneView::class, $renderingContext);
+        $majorVersion = (new Typo3Version())->getMajorVersion();
+        $view = $this->viewFactory->create(new ViewFactoryData(
+            templateRootPaths: [
+                sprintf('EXT:deepl_write/Resources/Private/Core%d/Backend/Templates/', $majorVersion),
+            ],
+            request: $request,
+        ));
         $view->assignMultiple([
             'styles' => RephraseWritingStyleDeepL::cases(),
             'tones' => RephraseToneDeepL::cases(),
         ]);
         $response = $this->responseFactory->createResponse()
             ->withHeader('Content-Type', 'text/html; charset=utf-8');
-        $response->getBody()->write($view->render());
+        $response->getBody()->write($view->render('CkEditor/Edit'));
         return $response;
     }
 }

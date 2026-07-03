@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace WebVision\DeeplWrite\ViewHelpers\Backend\Site;
 
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Exception\SiteNotFoundException;
-use TYPO3\CMS\Core\Http\ServerRequest;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Fluid\Core\Rendering\RenderingContext;
@@ -33,13 +33,12 @@ final class WritePresetViewHelper extends AbstractViewHelper
         // @todo $siteLanguageIds is not used - ViewHelper argument make not sense. Should be rechecked.
         $siteLanguageIds = GeneralUtility::intExplode(',', $this->arguments['siteLanguageIds'], true);
         $renderingContext = $this->renderingContext;
-        if (!$renderingContext instanceof RenderingContext) {
+        if (!$renderingContext instanceof RenderingContext
+            || !$renderingContext->hasAttribute(ServerRequestInterface::class)
+        ) {
             return '';
         }
-        $request = $renderingContext->getRequest();
-        if (!$request instanceof ServerRequest) {
-            return '';
-        }
+        $request = $renderingContext->getAttribute(ServerRequestInterface::class);
         $queryParams = $request->getQueryParams();
         if (!array_key_exists('site', $queryParams)) {
             return '';

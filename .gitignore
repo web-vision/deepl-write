@@ -18,6 +18,7 @@ http-client.env.json
 Build/testing-docker/.env
 /config/
 Build/node_modules/
+/packages/
 vendor
 tailor-version-artefact/
 tailor-version-upload/

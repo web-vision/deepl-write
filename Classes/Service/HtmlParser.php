@@ -32,7 +32,7 @@ final class HtmlParser
         $iterator = new DOMDocument();
         $iterator->loadHTML(
             $value,
-            LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD | LIBXML_NOCDATA | LIBXML_NOEMPTYTAG | LIBXML_NOERROR | LIBXML_NONET | LIBXML_NOWARNING
+            LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD | LIBXML_NOCDATA | LIBXML_NOERROR | LIBXML_NONET | LIBXML_NOWARNING
         );
         return $this->xmlToArray($iterator->childNodes);
     }

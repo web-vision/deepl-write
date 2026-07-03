@@ -40,9 +40,8 @@ jobs:
       - name: "Find duplicate exception codes"
         run: "Build/Scripts/runTests.sh -t 14 -p ${{ matrix.php-version }} -s checkExceptionCodes"
 
-# @todo DPL-158: Enable once the TYPO3 v14 PHPStan findings are resolved.
-#      - name: "Run PHPStan"
-#        run: "Build/Scripts/runTests.sh -t 14 -p ${{ matrix.php-version }} -s phpstan"
+      - name: "Run PHPStan"
+        run: "Build/Scripts/runTests.sh -t 14 -p ${{ matrix.php-version }} -s phpstan"
 
   testsuite:
     name: all tests with core v14

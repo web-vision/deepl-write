@@ -12,7 +12,7 @@ final class Input extends AbstractFieldType
         return [(string)$value];
     }
 
-    public function getValueForDatabase(array $processedText): int|string
+    public function getValueForDatabase(array $processedText): string
     {
         return implode('', $processedText);
     }

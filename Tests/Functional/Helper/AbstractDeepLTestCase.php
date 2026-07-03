@@ -61,10 +61,11 @@ abstract class AbstractDeepLTestCase extends FunctionalTestCase
                 throw new \Exception('DEEPL_SERVER_URL environment variable must be set if using a mock server');
             }
         } else {
-            if (getenv('DEEPL_AUTH_KEY') === false) {
+            $authKey = getenv('DEEPL_AUTH_KEY');
+            if ($authKey === false) {
                 throw new \Exception('DEEPL_AUTH_KEY environment variable must be set unless using a mock server');
             }
-            $this->authKey = getenv('DEEPL_AUTH_KEY');
+            $this->authKey = $authKey;
         }
         parent::setUp();
         $this->instantiateMockServerClient();

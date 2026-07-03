@@ -8,6 +8,7 @@ use TYPO3\CMS\Backend\Routing\Exception\RouteNotFoundException;
 use TYPO3\CMS\Backend\Routing\UriBuilder;
 use TYPO3\CMS\Backend\View\PageLayoutContext;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
+use TYPO3\CMS\Core\Http\NormalizedParams;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use WebVision\Deepl\Base\Event\ViewHelpers\ModifyInjectVariablesViewHelperEvent;
 use WebVision\DeeplWrite\Domain\Enum\RephraseSupportedDeepLLanguage;
@@ -64,14 +65,11 @@ final class DeeplWritePageViewRegistrationEventListener
             if (!array_key_exists($possibleLanguage, $deeplWriteLanguages)) {
                 continue;
             }
-            if (method_exists($context, 'getCurrentRequest')) {
-                $request = $context->getCurrentRequest();
-            } else {
-                $request = $GLOBALS['TYPO3_REQUEST'];
-            }
+            $request = $context->getCurrentRequest();
+            $normalizedParams = $request->getAttribute('normalizedParams');
             $parameters = [
                 'justLocalized' => 'pages:' . $context->getPageId() . ':' . $deeplWriteLanguages[$possibleLanguage],
-                'returnUrl' => $request->getAttribute('normalizedParams')->getRequestUri(),
+                'returnUrl' => $normalizedParams instanceof NormalizedParams ? $normalizedParams->getRequestUri() : '',
             ];
 
             $redirectUrl = $this->buildBackendRoute('record_edit', $parameters);

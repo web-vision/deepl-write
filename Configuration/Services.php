@@ -24,9 +24,12 @@ return function (ContainerConfigurator $containerConfigurator, ContainerBuilder 
     // Define the location of the PHP sources of our extension.
     // In addition, exclude Extbase models that should never be used via DI.
     //==================================================================================================================
-    $services->load(
-        sprintf('WebVision\\DeeplWrite\\Core%s\\', $majorVersion),
-        sprintf(__DIR__ . '/../Core%s/', $majorVersion),
-    );
+    $coreVersionSourcePath = sprintf(__DIR__ . '/../Core%d/', $majorVersion);
+    if (is_dir($coreVersionSourcePath)) {
+        $services->load(
+            sprintf('WebVision\\DeeplWrite\\Core%d\\', $majorVersion),
+            $coreVersionSourcePath,
+        );
+    }
     //==================================================================================================================
 };

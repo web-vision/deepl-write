@@ -10,7 +10,7 @@ parameters:
 
   paths:
     - ../../../Classes/
-    # - ../../../Core14/
+    - ../../../Core14/
     - ../../../Tests/
 
   excludePaths:

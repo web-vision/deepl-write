@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:deepl_write/Resources/Private/Language/Wizards/localization.xlf" date="2026-07-04T00:00:00Z" product-name="deepl_write">
+		<header/>
+		<body>
+			<!-- Handlers -->
+			<trans-unit id="handler.deeplwrite.label">
+				<source>Localize and improve with DeepL Write</source>
+			</trans-unit>
+			<trans-unit id="handler.deeplwrite.description">
+				<source><![CDATA[Creates a connected translation from the source language and improves the translated text with the DeepL Write API, applying the writing style or tone configured for the target site language.]]></source>
+			</trans-unit>
+			<!-- Error Messages -->
+			<trans-unit id="error.recordNotFound">
+				<source>Record with uid "%s" of type "%s" does not exist or is not accessible.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

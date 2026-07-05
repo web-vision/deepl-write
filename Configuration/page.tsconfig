@@ -1,3 +1,3 @@
 [typo3.branch == "13.4"]
-templates.typo3/cms-backend.1746801471424 = web-vision/deepl-base:Resources/Private/Core13/Backend/
+templates.typo3/cms-backend.1746801471424 = web-vision/deepl-write:Resources/Private/Core13/Backend/
 [END]

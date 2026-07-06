@@ -35,7 +35,7 @@
             "web-dir": ".Build/Web",
             "cms-package-dir": "{$vendor-dir}/typo3/cms",
             "app-dir": ".Build",
-            "version": "2.0.0",
+            "version": "2.0.1-dev",
             "Package": {
                 "providesPackages": {
                     "org_heigl/hyphenator": "contrib/Libraries"

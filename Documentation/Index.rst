@@ -64,6 +64,11 @@ localizing records.
 
         Known issues and information about them.
 
+    ..  card:: :ref:`Developer <developer>`
+
+        Extend the extension, for example by adding readability calculators
+        for additional languages.
+
     ..  card:: :ref:`Changelog <changelog>`
 
         Learn about what have changed and what actions are required to process.
@@ -77,6 +82,7 @@ localizing records.
     Administration/Index
     Reference/Index
     KnownIssues/Index
+    Developer/Index
     Changelog/Index
 
 ..  Meta Menu

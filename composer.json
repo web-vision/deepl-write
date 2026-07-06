@@ -5,6 +5,7 @@
     "require": {
         "php": "^8.2 || ^8.3 || ^8.4 || ^8.5",
         "ext-dom": "*",
+        "org_heigl/hyphenator": "3.1.0",
         "typo3/cms-backend": "^13.4 || ^14.3",
         "typo3/cms-core": "^13.4 || ^14.3",
         "web-vision/deepl-base": "^2.0.3@dev",
@@ -36,7 +37,9 @@
             "app-dir": ".Build",
             "version": "2.0.0-dev",
             "Package": {
-                "providesPackages": {}
+                "providesPackages": {
+                    "org_heigl/hyphenator": "contrib/Libraries"
+                }
             }
         },
         "branch-alias": {

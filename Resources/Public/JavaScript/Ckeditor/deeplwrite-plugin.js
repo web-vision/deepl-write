@@ -26,7 +26,11 @@ export class Deeplwrite extends Plugin {
             const deeplConfiguration = await response.resolve();
             const content = document.createElement('div');
             content.innerHTML = deeplConfiguration;
-            content.querySelector('#original').value = editor.getData();
+            const originalContent = editor.getData();
+            const originalReadability = content.querySelector('#original-readability');
+            Deeplwrite.calculateReadability(originalContent, editor.locale.contentLanguage, originalReadability);
+
+            content.querySelector('#original').value = originalContent;
             const optimizeModal = Modal.advanced({
               content: content,
               size: Modal.sizes.large,
@@ -59,6 +63,8 @@ export class Deeplwrite extends Plugin {
                       .then(async function (response){
                         const value = await response.resolve();
                         content.querySelector('#optimized').value = value.result;
+                        const optimizedReadability = content.querySelector('#optimized-readability');
+                        Deeplwrite.calculateReadability(value.result, editor.locale.contentLanguage, optimizedReadability);
                       })
                   }
                 },
@@ -92,5 +98,34 @@ export class Deeplwrite extends Plugin {
 
       return button;
     });
+  }
+
+  /**
+   * @param {string} text
+   * @param {string} language
+   * @param {Element} element
+   */
+  static calculateReadability(text, language, element) {
+    if (element === null) {
+      return;
+    }
+    new AjaxRequest(TYPO3.settings.ajaxUrls.deeplwrite_readability)
+      .post({
+        text: text,
+        language: language
+      })
+      .then(async (response) => {
+        const readability = await response.resolve();
+        if (readability.score === null || readability.score === undefined) {
+          return;
+        }
+        const value = Math.max(0, Math.min(100, Number(readability.score) || 0)).toFixed(2);
+        element.style.setProperty('--value', value);
+        element.setAttribute('aria-valuenow', String(value));
+        const label = element.querySelector('.label');
+        if (label) {
+          label.textContent = `${value}%`;
+        }
+      });
   }
 }

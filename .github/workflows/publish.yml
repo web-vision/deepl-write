@@ -53,6 +53,14 @@ jobs:
       - name: Install tailor
         run: composer global require typo3/tailor --prefer-dist --no-progress --no-suggest
 
+      # Installs the bundled contrib libraries into `contrib/Libraries` so they are
+      # packaged into the TER artifact for classic mode installations. The committed
+      # `contrib/composer.lock` is resolved with `--prefer-lowest` (enforced by the
+      # `checkContribComposer` integration check), so `install` ships the lowest
+      # supported library versions.
+      - name: Install contrib libraries
+        run: composer install -d contrib --no-dev
+
       # Note that step will fail when `env.version` does not match the `ext_emconf.php` version.
       - name: Create local TER package upload artifact
         env:

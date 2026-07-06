@@ -1,0 +1,18 @@
+{
+    "name": "web-vision/deepl-write-lib",
+    "license": "GPL-2.0-or-later",
+    "config": {
+        "vendor-dir": "Libraries",
+        "preferred-install": {
+            "*": "dist"
+        },
+        "classmap-authoritative": true,
+        "platform": {
+            "php": "8.2.0"
+        }
+    },
+    "require": {
+        "php": "^8.2 || ^8.3 || ^8.4 || ^8.5",
+        "org_heigl/hyphenator": "3.1.0"
+    }
+}

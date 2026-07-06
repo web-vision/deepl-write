@@ -1,5 +1,3 @@
-..  include:: /Includes.rst.txt
-
 ..  _administration:
 
 ==============
@@ -12,3 +10,4 @@ Administration
 
     Installation/Index
     Configuration/Index
+    Updates/Index

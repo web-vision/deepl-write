@@ -1,4 +1,4 @@
-"1.x.x","13","8.2, 8.3, 8.4, 8.5","yes"
-"1.x.x","12","8.1, 8.2, 8.3, 8.4","yes"
-
-
+"2.x","14.3.x","8.2, 8.3, 8.4, 8.5","yes","web-vision/deepl-write","deepl_write"
+"2.x","13.4.x","8.2, 8.3, 8.4, 8.5","yes","web-vision/deepl-write","deepl_write"
+"1.x","13.4.x","8.2, 8.3, 8.4, 8.5","yes","web-vision/deepl-write","deepl_write"
+"1.x","12.4.x","8.1, 8.2, 8.3, 8.4","yes","web-vision/deepl-write","deepl_write"

@@ -13,8 +13,8 @@
                typo3-core-preferred="stable"
     />
     <project title="DeepL Write"
-             release="main (development 1.*.*-dev)"
-             version="main (development 1.*.*-dev)"
+             release="main (development 2.*.*-dev)"
+             version="main (development 2.*.*-dev)"
              copyright="since 2025 by web-vision GmbH &amp; Contributors"
     />
 </guides>

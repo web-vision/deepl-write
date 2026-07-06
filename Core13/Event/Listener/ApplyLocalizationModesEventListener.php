@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace WebVision\DeeplWrite\Core13\Event\Listener;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
-use TYPO3\CMS\Core\Information\Typo3Version;
 use WebVision\Deepl\Base\Event\GetLocalizationModesEvent;
 use WebVision\Deepl\Base\Localization\LocalizationMode;
 
@@ -24,12 +23,11 @@ final class ApplyLocalizationModesEventListener
     )]
     public function __invoke(GetLocalizationModesEvent $event): void
     {
-        $majorVersion = (new Typo3Version())->getMajorVersion();
         $writeMode = new LocalizationMode(
             identifier: 'deeplwrite',
             title: $event->getLanguageService()->sL('LLL:EXT:deepl_write/Resources/Private/Language/locallang.xlf:localize.educate.deeplwriteHeader'),
             description: $event->getLanguageService()->sL('LLL:EXT:deepl_write/Resources/Private/Language/locallang.xlf:localize.educate.deeplwrite'),
-            icon: ($majorVersion === 13 ? 'actions-localize-deepl-13' : 'actions-localize-deepl'),
+            icon: 'actions-localize-deepl-write',
             before: [],
             after: ['translate', 'copy'],
         );

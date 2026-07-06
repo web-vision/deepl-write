@@ -14,10 +14,10 @@ TYPO3 extension for DeepL Write integration. Write better texts
 
 ## Compatibility
 
-| Branch | Version | TYPO3     | PHP                                          |
-|--------|---------|-----------|----------------------------------------------|
-| main   | 2.x-dev | v13 + v14 | 8.2, 8.3, 8.4, 8.5                           |
-| 1      | 1.x-dev | v12 + v13 | 8.1, 8.2, 8.3, 8.4, 8.5 (depending on TYPO3) |
+| Branch | State          | Composer Package Name  | TYPO3 Extension Key | Version     | TYPO3     | PHP                                          |
+|--------|----------------|------------------------|---------------------|-------------|-----------|----------------------------------------------|
+| main   | development    | web-vision/deepl-write | deepl_write         | ^2, 2.x-dev | v13 + v14 | 8.2, 8.3, 8.4, 8.5                           |
+| 1      | active support | web-vision/deepl-write | deepl_write         | ^1, 1.x-dev | v12 + v13 | 8.1, 8.2, 8.3, 8.4, 8.5 (depending on TYPO3) |
 
 ## Installation
 

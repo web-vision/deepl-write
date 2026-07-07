@@ -2,6 +2,8 @@ import {Plugin} from '@ckeditor/ckeditor5-core';
 import {ButtonView} from '@ckeditor/ckeditor5-ui';
 import AjaxRequest from '@typo3/core/ajax/ajax-request.js';
 import Modal from '@typo3/backend/modal.js';
+// Registers the <deepl-write-readability> custom element used in the overlay.
+import '@web-vision/deepl-write/readability-progress.js';
 
 export class Deeplwrite extends Plugin {
   static pluginName = 'Deeplwrite';
@@ -119,13 +121,8 @@ export class Deeplwrite extends Plugin {
         if (readability.score === null || readability.score === undefined) {
           return;
         }
-        const value = Math.max(0, Math.min(100, Number(readability.score) || 0)).toFixed(2);
-        element.style.setProperty('--value', value);
-        element.setAttribute('aria-valuenow', String(value));
-        const label = element.querySelector('.label');
-        if (label) {
-          label.textContent = `${value}%`;
-        }
+        // The <deepl-write-readability> component clamps, formats and renders.
+        element.value = Number(readability.score) || 0;
       });
   }
 }

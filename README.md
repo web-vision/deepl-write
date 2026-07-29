@@ -72,8 +72,8 @@ Prerequisites:
 ```bash
 echo '>> Create release based on configuration' ; \
   RELEASE_BRANCH='1' ; \
-  RELEASE_VERSION='1.0.2' ; \
-  DEV_VERSION='1.0.3' ; \
+  RELEASE_VERSION='1.0.4' ; \
+  DEV_VERSION='1.0.5' ; \
   echo ">> Checkout branches" && \
   git checkout main && \
   git fetch --all && \

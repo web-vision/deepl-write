@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = [
             'backend' => '12.4.0-13.4.99',
             'php' => '8.1.0-8.5.99',
             'deepl_base' => '1.0.4-1.99.99',
-            'deeplcom_deepl_php' => '1.18.0-1.18.99',
+            'deeplcom_deepl_php' => '1.19.0-1.19.99',
         ],
         'suggests' => [
             'container' => '',

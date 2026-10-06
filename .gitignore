@@ -23,3 +23,4 @@ vendor
 tailor-version-artefact/
 tailor-version-upload/
 /contrib/Libraries/
+/.agent/

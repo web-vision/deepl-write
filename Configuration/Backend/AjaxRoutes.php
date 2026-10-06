@@ -1,6 +1,7 @@
 <?php
 
 use WebVision\DeeplWrite\Controller\CkEditorController;
+use WebVision\DeeplWrite\Controller\ReadabilityController;
 
 return [
     'deeplwrite_ckeditor_configuration' => [
@@ -17,5 +18,10 @@ return [
         'path' => '/deepl-write/ckeditor/edit',
         'target' => CkEditorController::class . '::getEditMaskAction',
         'methods' => ['GET'],
+    ],
+    'deeplwrite_readability' => [
+        'path' => '/deepl-write/readability/calculate',
+        'target' => ReadabilityController::class . '::calculate',
+        'methods' => ['post'],
     ],
 ];

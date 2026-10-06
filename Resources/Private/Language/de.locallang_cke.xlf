@@ -47,6 +47,14 @@
 				<source>Apply changes</source>
 				<target>Änderungen übernehmen</target>
 			</trans-unit>
+			<trans-unit id="cke.modal.original.heading">
+				<source>Original | Reading Index (Flesh-Kincaid)</source>
+				<target>Original | Lesbarkeitsindex (Flesh-Kincaid)</target>
+			</trans-unit>
+			<trans-unit id="cke.modal.optimized.heading">
+				<source>Optimized | Reading Index (Flesh-Kincaid)</source>
+				<target>Optimiert | Lesbarkeitsindex (Flesh-Kincaid)</target>
+			</trans-unit>
 			<trans-unit id="deepl.write.tone.DEFAULT">
 				<source>Default</source>
 				<target>Standard</target>
